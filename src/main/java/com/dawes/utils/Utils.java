@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 public class Utils {
 	
 	//Leemos una imagen y la pasamos a bits
@@ -24,5 +26,11 @@ public class Utils {
 			is.close();
 		}
 		return buffer;
+	}
+	
+	//Encriptar
+	public static String encriptar(String contraseña) {
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		return encoder.encode(contraseña);
 	}
 }

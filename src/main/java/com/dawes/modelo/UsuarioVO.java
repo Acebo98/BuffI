@@ -38,6 +38,8 @@ public class UsuarioVO implements UserDetails {
 	private String email;
 	
 	private LocalDate fcreacion;
+	
+	@Column(nullable = true)
 	private LocalDate fnacimiento;
 	
 	@Column(nullable = true, length = 50)

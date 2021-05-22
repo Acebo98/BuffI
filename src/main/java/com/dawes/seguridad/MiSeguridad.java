@@ -30,8 +30,6 @@ public class MiSeguridad extends WebSecurityConfigurerAdapter {
 	//Autenficicación
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		//auth.inMemoryAuthentication().withUser("user").password(encriptar("temporal")).roles("USER");
-		//auth.inMemoryAuthentication().withUser("admin").password(encriptar("temporal")).roles("ADMIN");
 		auth.userDetailsService(userDetailsService);
 	}
 	

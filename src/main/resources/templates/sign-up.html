@@ -21,20 +21,20 @@
         </div>
     </header>
     <main class="form-signin container-flex">
-        <form class="form-sign-in">
+        <form th:action="@{/registrarse}" method="POST" class="form-sign-in">
             <img src="images/buffy_logo.png" alt="">
             <h1 class="h3 mb-3 text-align strong">Regístrate ahora</h1>
 
             <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
                 <label for="floatingInput">E-Mail</label>
             </div>
             <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" placeholder="Nombre...">
+                <input name="username" type="text" class="form-control" id="floatingInput" placeholder="Nombre..." required>
                 <label for="floatingInput">Nombre de usuario</label>
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña...">
+                <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Contraseña..." required>
                 <label for="floatingPassword">Contraseña</label>
             </div>
 
