@@ -1,0 +1,404 @@
+html {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+/* BODY */
+
+body {
+    background-image: url("/images/buffy_logo_desaturado.png");
+    background-size: 5%;
+}
+
+
+/* NAVEGACIÓN */
+
+.navigation {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    background-color: rgb(255, 239, 94);
+    background-image: url("/images/buffy_logo.png");
+    background-repeat: no-repeat;
+    background-size: 2.5%;
+    background-position: center left 10px;
+}
+
+.navigation a {
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+    height: 100%;
+    padding: 1em;
+    color: black;
+    transition: background-color 0.5s ease;
+    transition: border-bottom 0.5s ease;
+    border-bottom: 2px solid black;
+}
+
+.navigation a:hover {
+    background-color: rgb(255, 231, 17);
+    border-bottom: 2px solid red;
+    color: red;
+}
+
+
+/* HEADER-TITULO */
+
+#header-titulo {
+    text-align: center;
+    margin: 0%;
+    padding: 0%;
+    background-color: rgb(255, 231, 17);
+    border-top: 1px lightgray solid;
+    border-bottom: 1px lightgray solid;
+}
+
+#header-titulo>h1 {
+    font-size: 6em;
+    font-weight: bold;
+}
+
+
+/* CONTAINER */
+
+#container {
+    margin: 10px auto;
+    padding: 5px;
+    background-color: lightgray;
+    width: 70%;
+    border-radius: 5px;
+}
+
+
+/* MAIN */
+
+.container-flex {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+
+/* ITEM-RUTINA */
+
+.item-rutina {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    margin: 10px;
+    padding: 20px;
+    width: 33%;
+    height: 250px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 7px 9px 16px -6px rgba(0, 0, 0, 0.55);
+}
+
+.info-item-rutina>h2 {
+    background-color: lightskyblue;
+    color: white;
+    margin: -20px -20px 0 -20px;
+    padding: 10px;
+    border-radius: 20px 20px 0 0;
+    text-align: center;
+}
+
+.item-rutina-other-info {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-rutina-etiqueta {
+    display: inline;
+    font-weight: bold;
+    color: white;
+    padding: 3px 10px 3px 10px;
+    margin: 0%;
+    background-color: greenyellow;
+    border-radius: 10px;
+}
+
+.item-rutina-fecha {
+    display: inline;
+    margin: 0%;
+}
+
+.item-rutina-nombre {
+    display: inline;
+    margin: 0%;
+}
+
+.item-rutina-lupa {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    text-align: right;
+    text-decoration: none;
+    align-items: center;
+}
+
+.item-rutina-lupa>.mancuernas {
+    transform: rotate(0.1turn);
+}
+
+
+/* FORMULARIO SIGN-UP/LOG-IN */
+
+.form-sign-in {
+    background-color: lightskyblue;
+    padding: 20px;
+    width: 20%;
+    border-radius: 20px;
+    box-shadow: 7px 9px 16px -6px rgba(0, 0, 0, 0.55);
+}
+
+.form-sign-in>img {
+    display: block;
+    margin: auto;
+    width: 20%;
+}
+
+#background-form {
+    background-image: url("/images/fondo_gimnasio.png");
+    background-size: cover;
+}
+
+
+/* FORM DETALLE RUTINA */
+
+#form-detalle-rutina {
+    margin: 10px auto;
+    padding: 20px;
+    background-color: beige;
+    width: 70%;
+    border-radius: 20px;
+}
+
+
+/* DIV EJERCICIOS */
+
+#div-ejercicios {
+    display: flex;
+    flex-flow: row wrap;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    background-color: white;
+}
+
+.item-ejercicio {
+    display: flex;
+    flex-flow: nowrap wrap;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    height: 200px;
+    background-color: rgb(241, 241, 228);
+    border: 1px solid lightgray;
+}
+
+.item-ejercicio-img {
+    border-radius: 10px;
+    height: 100%;
+    width: 180px;
+    background-color: red;
+    background-image: url("/images/mancuernas.jpg");
+    background-size: cover;
+}
+
+.item-ejercicio-info {
+    margin-left: 10px;
+    width: 80%;
+}
+
+#ejercicio-div-descripcion {
+    background-color: white;
+    height: 200px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    padding: 10px;
+}
+
+.img-pencil {
+    transition: transform 0.2s;
+}
+
+.img-pencil:hover {
+    transform: rotate(-0.1turn);
+}
+
+.img-remove {
+    transition: transform 0.2s;
+}
+
+.img-remove:hover {
+    transform: rotate(0.1turn);
+}
+
+
+/* DIV COMENTARIOS */
+
+#form-rutina-comentario {
+    display: flex;
+    flex-flow: row wrap;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    background-color: white;
+}
+
+.item-comentario {
+    margin: 10px;
+}
+
+
+/* NUM-RUTINAS */
+
+.num-rutinas {
+    background-color: lightskyblue;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+
+/* NUEVA RUTINA */
+
+.btn-nueva-rutina {
+    position: absolute;
+    right: 100px;
+    bottom: 100px;
+    text-align: center;
+}
+
+.btn-nueva-rutina img {
+    transition: transform 0.2s;
+}
+
+.btn-nueva-rutina img:hover {
+    transform: rotate(0.1turn);
+}
+
+
+/* ASIGNAR EJERCICIOS */
+
+#div-ejercicios-elegir {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    background-color: white;
+}
+
+#div-ejercicios-elegir>.item-ejercicio {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    padding: 10px;
+    width: 15%;
+    height: 200px;
+    transition: background-color 0.5s ease;
+}
+
+.item-ejercicio-img-2 {
+    border-radius: 10px;
+    width: 100%;
+    height: 70%;
+    background-color: red;
+}
+
+#div-ejercicios-elegir>.item-ejercicio:hover {
+    background-color: rgba(255, 255, 194, 0.733);
+}
+
+.item-ejercicio>p {
+    text-align: center;
+}
+
+
+/* 404 */
+
+#main-404 {
+    margin: 0 auto 0 auto;
+    width: 50%;
+    height: 100vh;
+    align-items: center;
+}
+
+#main-404>* {
+    margin: 10px;
+}
+
+#main-404 h1 {
+    text-align: center;
+}
+
+#main-404 button {
+    float: right;
+}
+
+
+/* CLASES VARIADAS */
+
+.flex {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.flex-column {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.flex-end {
+    justify-content: flex-end;
+}
+
+.flex-center {
+    justify-content: center;
+}
+
+.align-items-baseline {
+    align-items: baseline;
+}
+
+.inline {
+    display: inline;
+}
+
+.block {
+    display: block;
+}
+
+.text-align {
+    text-align: center;
+}
+
+.strong {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.margen0 {
+    margin: 0%;
+}
+
+.float-right {
+    float: right;
+}
+
+.float-left {
+    float: left;
+}
