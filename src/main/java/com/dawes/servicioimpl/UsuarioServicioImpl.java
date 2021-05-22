@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.dawes.modelo.UsuarioVO;
@@ -12,9 +15,10 @@ import com.dawes.repositorio.ComentarioRepository;
 import com.dawes.repositorio.RutinaRepository;
 import com.dawes.repositorio.UsuarioRepository;
 import com.dawes.servicio.UsuarioServicio;
+import com.dawes.servicio.UsuarioServicio;
 
 @Service
-public class UsuarioServicioImpl implements UsuarioServicio {
+public class UsuarioServicioImpl implements UserDetailsService, UsuarioServicio {
 	
 	@Autowired
 	UsuarioRepository ur;
@@ -89,12 +93,20 @@ public class UsuarioServicioImpl implements UsuarioServicio {
 	}
 
 	@Override
-	public Optional<UsuarioVO> findByNombre(String nombre) {
-		return ur.findByNombre(nombre);
+	public Optional<UsuarioVO> findByUsername(String username) {
+		return ur.findByUsername(username);
 	}
 
 	@Override
 	public Iterable<UsuarioVO> findByFnacimientoBetween(LocalDate f1, LocalDate f2) {
 		return ur.findByFnacimientoBetween(f1, f2);
+	}
+
+	/*
+	 * MÉTODO DE INICIO
+	 */
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		return ur.findByUsername(username).get();
 	}
 }

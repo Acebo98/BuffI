@@ -1,8 +1,10 @@
 package com.dawes.servicio;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Optional;
+
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.dawes.modelo.UsuarioVO;
 
@@ -24,15 +26,22 @@ public interface UsuarioServicio {
 
 	void deleteById(Integer id);
 
+	//Borramos un usuario con todos sus datos almacenados
 	void delete(UsuarioVO entity);
 
 	void deleteAll(Iterable<? extends UsuarioVO> entities);
 
 	void deleteAll();
-	
+
 	Iterable<UsuarioVO> findByFcreacionBetween(LocalDate f1, LocalDate f2);
-	
+
+	Optional<UsuarioVO> findByUsername(String username);
+
 	Iterable<UsuarioVO> findByFnacimientoBetween(LocalDate f1, LocalDate f2);
-	
-	Optional<UsuarioVO> findByNombre(String nombre);
+
+	/*
+	 * MÉTODO DE INICIO
+	 */
+	UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
+
 }
