@@ -14,6 +14,6 @@ public class RutinasController {
 	
 	@GetMapping("/buscar-rutinas")
 	public String rutinas() {
-		return "buscar-rutinas.html";
+		return "buscar-rutinas";
 	}
 }
