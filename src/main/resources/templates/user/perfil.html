@@ -42,7 +42,7 @@
                 <label for="basic-url" class="form-label">Nombre de usuario</label>
                 <input th:value="${usuario.username}" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="ElMasCachas98" required>
                 <label for="basic-url" class="form-label">Fecha de nacimiento</label>
-                <input type="date" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="12-12-2021">
+                <input th:value="${usuario.fnacimientostring}" type="date" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="12-12-2021">
                 <label for="basic-url" class="form-label">Localidad</label>
                 <input th:text="${usuario.localidad}" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Gijón" required>
             </div>

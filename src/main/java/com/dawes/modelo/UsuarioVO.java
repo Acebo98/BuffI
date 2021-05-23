@@ -42,6 +42,9 @@ public class UsuarioVO implements UserDetails {
 	@Column(nullable = true)
 	private LocalDate fnacimiento;
 	
+	@Column(nullable = true)
+	private String fnacimientostring;
+	
 	@Column(nullable = true, length = 50)
 	private String localidad;
 	
@@ -57,7 +60,7 @@ public class UsuarioVO implements UserDetails {
 	}
 
 	public UsuarioVO(String nombre, String contrasena, String email, LocalDate fcreacion, LocalDate fnacimiento,
-			String localidad, List<RutinaVO> rutinas, RolVO rol) {
+			String localidad, String fnacimientostring, List<RutinaVO> rutinas, RolVO rol) {
 		super();
 		this.username = nombre;
 		this.password = contrasena;
@@ -67,10 +70,11 @@ public class UsuarioVO implements UserDetails {
 		this.localidad = localidad;
 		this.rutinas = rutinas;
 		this.rol = rol;
+		this.fnacimientostring = fnacimientostring;
 	}
 
 	public UsuarioVO(int idusuario, String nombre, String contrasena, String email, LocalDate fcreacion,
-			LocalDate fnacimiento, String localidad, List<RutinaVO> rutinas, RolVO rol) {
+			LocalDate fnacimiento, String localidad, String fnacimientostring, List<RutinaVO> rutinas, RolVO rol) {
 		super();
 		this.idusuario = idusuario;
 		this.username = nombre;
@@ -81,6 +85,7 @@ public class UsuarioVO implements UserDetails {
 		this.localidad = localidad;
 		this.rutinas = rutinas;
 		this.rol = rol;
+		this.fnacimientostring = fnacimientostring;
 	}
 
 	public int getIdusuario() {
@@ -153,6 +158,14 @@ public class UsuarioVO implements UserDetails {
 
 	public void setRol(RolVO rol) {
 		this.rol = rol;
+	}
+
+	public String getFnacimientostring() {
+		return fnacimientostring;
+	}
+
+	public void setFnacimientostring(String fnacimientostring) {
+		this.fnacimientostring = fnacimientostring;
 	}
 
 	/*

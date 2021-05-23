@@ -23,6 +23,9 @@ public class EtiquetaVO {
 	@Column(unique = true, nullable = false, length = 30)
 	private String nombre;
 	
+	@Column(nullable = false)
+	private String color;
+	
 	@OneToMany(mappedBy = "etiqueta", fetch = FetchType.EAGER)
 	private List<RutinaVO> rutinas;
 
@@ -30,17 +33,19 @@ public class EtiquetaVO {
 		super();
 	}
 
-	public EtiquetaVO(String nombre, List<RutinaVO> rutinas) {
+	public EtiquetaVO(String nombre, String color, List<RutinaVO> rutinas) {
 		super();
 		this.nombre = nombre;
 		this.rutinas = rutinas;
+		this.color = color;
 	}
 
-	public EtiquetaVO(int idetiqueta, String nombre, List<RutinaVO> rutinas) {
+	public EtiquetaVO(int idetiqueta, String nombre, String color, List<RutinaVO> rutinas) {
 		super();
 		this.idetiqueta = idetiqueta;
 		this.nombre = nombre;
 		this.rutinas = rutinas;
+		this.color = color;
 	}
 
 	public int getIdetiqueta() {
@@ -65,5 +70,13 @@ public class EtiquetaVO {
 
 	public void setRutinas(List<RutinaVO> rutinas) {
 		this.rutinas = rutinas;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
 	}
 }
