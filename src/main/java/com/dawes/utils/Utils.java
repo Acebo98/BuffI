@@ -33,4 +33,9 @@ public class Utils {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		return encoder.encode(contraseña);
 	}
+	
+	//Validamos que una String no sea completamente vacia
+	public static boolean isStringFullEmpty(String string) {
+		return !string.isBlank() && !string.isEmpty();
+	}
 }

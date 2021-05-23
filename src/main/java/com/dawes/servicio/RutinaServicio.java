@@ -34,4 +34,10 @@ public interface RutinaServicio {
 	Iterable<RutinaVO> findByFcreacionBetween(LocalDate f1, LocalDate f2);
 	
 	Optional<RutinaVO> findByNombre(String nombre);
+	
+	Iterable<RutinaVO> findByNombres(String nombre);
+	
+	Iterable<RutinaVO> findAllByOrderByFcreacionAsc();		//Ascendiente
+	
+	Iterable<RutinaVO> findAllByOrderByFcreacionDesc();		//Descendiente	
 }

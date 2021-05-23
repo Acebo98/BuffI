@@ -92,4 +92,19 @@ public class RutinaServicioImpl implements RutinaServicio {
 	public Optional<RutinaVO> findByNombre(String nombre) {
 		return rr.findByNombre(nombre);
 	}
+
+	@Override
+	public Iterable<RutinaVO> findByNombres(String nombre) {
+		return rr.findByNombres(nombre);
+	}
+
+	@Override
+	public Iterable<RutinaVO> findAllByOrderByFcreacionAsc() {
+		return rr.findAllByOrderByFcreacionAsc();
+	}
+
+	@Override
+	public Iterable<RutinaVO> findAllByOrderByFcreacionDesc() {
+		return rr.findAllByOrderByFcreacionDesc();
+	}
 }

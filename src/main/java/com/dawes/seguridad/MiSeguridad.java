@@ -44,4 +44,9 @@ public class MiSeguridad extends WebSecurityConfigurerAdapter {
 		http.logout().logoutSuccessUrl("/buscar-rutinas");		//URL cuando nos desconectamos
 		//http.csrf().disable();
 	}
+	
+	@Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+	    auth.eraseCredentials(false);
+	}
 }

@@ -35,35 +35,37 @@
 	
     <!-- CONTENEDOR PRINCIPAL -->
     <div id="container">
-        <div class="flex space-between">
-            <div class="input-group mb-3" style="width: 80%;">
-                <input type="text" class="form-control" placeholder="Nombre..." aria-label="Recipient's username" aria-describedby="button-addon2">
-                <button class="btn btn-primary" type="button" id="button-addon2">Buscar</button>
-            </div>
-            <div class="mb-3">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Filtrar...</option>
-                    <option value="1">Mas recientes</option>
-                    <option value="2">Populares</option>
-                    <option value="3">Subiendo</option>
-                </select>
-            </div>
-        </div>
+    	<form th:action="@{/buscar-rutinas}" method="get">
+    		<div class="flex space-between">
+	            <div class="input-group mb-3" style="width: 80%;">
+	                <input name="nombre-filtrar" type="text" class="form-control" placeholder="Nombre..." aria-label="Recipient's username" aria-describedby="button-addon2">
+	                <button class="btn btn-primary" type="submit" id="button-addon2">Buscar</button>
+	            </div>
+	            <div class="mb-3">
+	                <select name="filtro" class="form-select" aria-label="Default select example">
+	                    <option selected>Filtrar...</option>
+	                    <option value="1">Recientes</option>
+	                    <option value="2">Antiguas</option>
+	                </select>
+	            </div>
+	        </div>
+    	</form>
+
         <main class="container-flex">
 
-            <!-- RUTINAS -->
-            <div class="item-rutina">
+            <!-- RUTINAS -->       
+            <div th:each="rutina : ${rutinas}" class="item-rutina">
                 <div class="info-item-rutina">
-                    <h2>Brazo y pecho</h2>
+                    <h2 th:text="${rutina.nombre}">Brazo y pecho</h2>
                 </div>
                 <a class="item-rutina-lupa" href="#">
                     <img class="mancuernas" src="images/mancuernas.png">
                     <img class="lupa" src="images/lupa.png">
                 </a>
                 <div class="item-rutina-other-info">
-                    <p class="item-rutina-etiqueta">Tren superior</p>
-                    <p class="item-rutina-nombre strong">Sergio98</p>
-                    <p class="item-rutina-fecha">02-02-2021</p>
+                    <p th:text="${rutina.etiqueta.nombre}" class="item-rutina-etiqueta">Tren superior</p>
+                    <p th:text="${rutina.usuario.username}" class="item-rutina-nombre strong">Sergio98</p>
+                    <p th:text="${rutina.fcreacion}" class="item-rutina-fecha">02-02-2021</p>
                 </div>
             </div>
         </main>
