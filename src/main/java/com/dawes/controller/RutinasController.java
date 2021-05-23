@@ -45,4 +45,10 @@ public class RutinasController {
 		modelo.addAttribute("rutinas", rutinas);	
 		return "buscar-rutinas";
 	}
+	
+	//Mis rutinas
+	@GetMapping("/user/mis-rutinas")
+	public String misRutinas(Model modelo) {
+		return "user/mis-rutinas";
+	}
 }

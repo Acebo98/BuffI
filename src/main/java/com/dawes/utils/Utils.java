@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class Utils {
@@ -37,5 +39,11 @@ public class Utils {
 	//Validamos que una String no sea completamente vacia
 	public static boolean isStringFullEmpty(String string) {
 		return !string.isBlank() && !string.isEmpty();
+	}
+	
+	//Obtenemos el usuario registrado
+	public static String getLoggedUser() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		return auth.getName();
 	}
 }

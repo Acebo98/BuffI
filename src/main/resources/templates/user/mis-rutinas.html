@@ -6,21 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BuffI - Mis rutinas</title>
-    <link href="estilos.css" rel="stylesheet" type="text/css">
+    <link href="/estilos.css" rel="stylesheet" type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
 </head>
 
 <body>
     <header>
         <nav>
             <ul class="navigation">
-                <li><a href="">Rutinas</a></li>
-                <li><a href="">Mis rutinas</a></li>
-                <li><a href="">Mi perfil</a></li>
-                <li><a href="">Contacto</a></li>
+                <li><a th:href="@{/buscar-rutinas}">Rutinas</a></li>
+                <li><a th:href="@{/user/mis-rutinas}">Mis rutinas</a></li>
+                <li><a th:href="@{/user/mi-perfil}">Mi perfil</a></li>
+                <li><a th:href="@{/contacto}">Contacto</a></li>
             </ul>
         </nav>
         <div id="header-titulo">
@@ -31,7 +31,7 @@
 
     <div class="btn-nueva-rutina">
         <a href="#">
-            <img src="images/anadir.png">
+            <img src="/images/anadir.png">
         </a>
     </div>
 
@@ -57,8 +57,8 @@
                     <h2>Brazo y pecho</h2>
                 </div>
                 <div class="flex space-between">
-                    <a href=""><img class="img-pencil" src="images/pencil.png"></a>
-                    <a href=""><img class="img-remove" src="images/remove.png"></a>
+                    <a href=""><img class="img-pencil" src="/images/pencil.png"></a>
+                    <a href=""><img class="img-remove" src="/images/remove.png"></a>
                 </div>
                 <div class="item-rutina-other-info">
                     <p class="item-rutina-etiqueta">Tren superior</p>
