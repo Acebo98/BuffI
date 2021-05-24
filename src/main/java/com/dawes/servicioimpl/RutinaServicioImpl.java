@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dawes.modelo.RutinaVO;
+import com.dawes.modelo.UsuarioVO;
 import com.dawes.repositorio.ComentarioRepository;
 import com.dawes.repositorio.RutinaEjercicioRepository;
 import com.dawes.repositorio.RutinaRepository;
@@ -106,5 +107,10 @@ public class RutinaServicioImpl implements RutinaServicio {
 	@Override
 	public Iterable<RutinaVO> findAllByOrderByFcreacionDesc() {
 		return rr.findAllByOrderByFcreacionDesc();
+	}
+
+	@Override
+	public Iterable<RutinaVO> findByUsuario(UsuarioVO usuario) {
+		return rr.findByUsuario(usuario);
 	}
 }

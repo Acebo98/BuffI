@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dawes.modelo.RutinaVO;
+import com.dawes.modelo.UsuarioVO;
 import com.dawes.servicio.RutinaServicio;
+import com.dawes.servicio.UsuarioServicio;
 import com.dawes.utils.Utils;
 
 /*
@@ -22,6 +24,9 @@ public class RutinasController {
 	
 	@Autowired
 	private RutinaServicio rs;
+	
+	@Autowired
+	private UsuarioServicio us;
 	
 	//Mostramos las rutinas
 	@GetMapping("/buscar-rutinas")
@@ -49,6 +54,10 @@ public class RutinasController {
 	//Mis rutinas
 	@GetMapping("/user/mis-rutinas")
 	public String misRutinas(Model modelo) {
+		UsuarioVO usuario = us.findByUsername(Utils.getLoggedUser()).get();		//Usuario loggeado
+		List<RutinaVO> rutinas = (List<RutinaVO>) rs.findByUsuario(usuario);	//Rutinas del usuario loggeado
+		
+		modelo.addAttribute("rutinas", rutinas);
 		return "user/mis-rutinas";
 	}
 }

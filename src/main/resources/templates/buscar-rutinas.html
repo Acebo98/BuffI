@@ -58,7 +58,7 @@
                 <div class="info-item-rutina">
                     <h2 th:text="${rutina.nombre}">Brazo y pecho</h2>
                 </div>
-                <a class="item-rutina-lupa" href="#">
+                <a class="item-rutina-lupa" th:href="@{/user/detalle-rutina(idrutina=${rutina.idrutina})}">
                     <img class="mancuernas" src="images/mancuernas.png">
                     <img class="lupa" src="images/lupa.png">
                 </a>

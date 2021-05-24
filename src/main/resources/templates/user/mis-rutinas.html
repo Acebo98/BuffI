@@ -46,23 +46,23 @@
             </select>
             <div>
                 <p class="strong inline">Rutinas</p>
-                <p class="inline num-rutinas">30</p>
+                <p class="inline num-rutinas" th:text="${rutinas.size()}">30</p>
             </div>
         </div>
         <main class="container-flex">
 
             <!-- MIS RUTINAS -->
-            <div class="item-rutina">
+            <div th:each="rutina : ${rutinas}" class="item-rutina">
                 <div class="info-item-rutina">
-                    <h2>Brazo y pecho</h2>
+                    <h2 th:text="${rutina.nombre}">Brazo y pecho</h2>
                 </div>
                 <div class="flex space-between">
-                    <a href=""><img class="img-pencil" src="/images/pencil.png"></a>
-                    <a href=""><img class="img-remove" src="/images/remove.png"></a>
+                    <a th:href="@{/user/modificar-rutina(idrutina=${rutina.idrutina})}"><img class="img-pencil" src="/images/pencil.png"></a>
+                    <a th:href="@{/user/eliminar-rutina(idrutina=${rutina.idrutina})}"><img class="img-remove" src="/images/remove.png"></a>
                 </div>
                 <div class="item-rutina-other-info">
-                    <p class="item-rutina-etiqueta">Tren superior</p>
-                    <p class="item-rutina-fecha">02-02-2021</p>
+                    <p th:text="${rutina.etiqueta.nombre}" class="item-rutina-etiqueta" th:style="'background-color: ' + ${rutina.etiqueta.color} + ';'">Tren superior</p>
+                    <p th:text="${rutina.fcreacion}" class="item-rutina-fecha">02-02-2021</p>
                 </div>
             </div>
         </main>

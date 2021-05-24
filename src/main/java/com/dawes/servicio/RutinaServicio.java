@@ -40,4 +40,6 @@ public interface RutinaServicio {
 	Iterable<RutinaVO> findAllByOrderByFcreacionAsc();		//Ascendiente
 	
 	Iterable<RutinaVO> findAllByOrderByFcreacionDesc();		//Descendiente	
+	
+	Iterable<RutinaVO> findByUsuario(UsuarioVO usuario);
 }

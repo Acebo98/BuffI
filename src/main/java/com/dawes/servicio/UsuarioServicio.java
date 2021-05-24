@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
+import com.dawes.modelo.RutinaVO;
 import com.dawes.modelo.UsuarioVO;
 
 public interface UsuarioServicio {
