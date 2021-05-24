@@ -14,4 +14,5 @@ public interface UsuarioRepository extends CrudRepository<UsuarioVO, Integer> {
 	Iterable<UsuarioVO> findByFcreacionBetween(LocalDate f1, LocalDate f2);
 	Iterable<UsuarioVO> findByFnacimientoBetween(LocalDate f1, LocalDate f2);
 	Optional<UsuarioVO> findByUsername(String username);
+	Optional<UsuarioVO> findByIdusuario(int idusuario);
 }

@@ -38,6 +38,8 @@ public interface UsuarioServicio {
 	Optional<UsuarioVO> findByUsername(String username);
 
 	Iterable<UsuarioVO> findByFnacimientoBetween(LocalDate f1, LocalDate f2);
+	
+	Optional<UsuarioVO> findByIdusuario(int idusuario);
 
 	/*
 	 * MÉTODO DE INICIO

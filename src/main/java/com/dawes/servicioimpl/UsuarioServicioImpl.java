@@ -101,6 +101,11 @@ public class UsuarioServicioImpl implements UserDetailsService, UsuarioServicio 
 	public Iterable<UsuarioVO> findByFnacimientoBetween(LocalDate f1, LocalDate f2) {
 		return ur.findByFnacimientoBetween(f1, f2);
 	}
+	
+	@Override
+	public Optional<UsuarioVO> findByIdusuario(int idusuario) {
+		return ur.findByIdusuario(idusuario);
+	}
 
 	/*
 	 * MÉTODO DE INICIO

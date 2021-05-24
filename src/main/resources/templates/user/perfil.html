@@ -31,30 +31,33 @@
 
     <!-- DATOS DEL PERFIL -->
     <main id="form-detalle-rutina">
-        <div class="mb-3 text-align">
-            <h1>Mi perfil</h1>
-            <hr>
-        </div>
-        <div class="flex space-between">
-            <div class="mb-3 flex flex-column flex-center" style="width: 50%;">
-                <label for="basic-url" class="form-label">E-Mail</label>
-                <input th:value="${usuario.email}" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="ejemplo@hotmail.com" required>
-                <label for="basic-url" class="form-label">Nombre de usuario</label>
-                <input th:value="${usuario.username}" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="ElMasCachas98" required>
-                <label for="basic-url" class="form-label">Fecha de nacimiento</label>
-                <input th:value="${usuario.fnacimientostring}" type="date" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="12-12-2021">
-                <label for="basic-url" class="form-label">Localidad</label>
-                <input th:text="${usuario.localidad}" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Gijón" required>
-            </div>
-            <div class="mb-3 flex flex-column flex-center">
-                <img src="/images/usuario.png">
-            </div>
-        </div>
-        <hr>
-        <div class="flex space-between">
-            <button type="button" class="btn btn-danger" th:action="@{/mis-rutinas}">Cancelar</button>
-            <button type="button" class="btn btn-primary">Modificar</button>
-        </div>
+    	<form th:action="@{/user/modificar-perfil}" method="post">
+    		<div class="mb-3 text-align">
+	            <h1>Mi perfil</h1>
+	            <hr>
+	        </div>
+	        <div class="flex space-between">
+	            <div class="mb-3 flex flex-column flex-center" style="width: 50%;">
+	            	<input th:value="${usuario.idusuario}" name="idusuario" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="1" required hidden>        
+	                <label for="basic-url" class="form-label">E-Mail</label>
+	                <input th:value="${usuario.email}" name="email" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="ejemplo@hotmail.com" required>
+	                <label for="basic-url" class="form-label">Nombre de usuario</label>
+	                <input th:value="${usuario.username}" name="username" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="ElMasCachas98" disabled>
+	                <label for="basic-url" class="form-label">Fecha de nacimiento</label>
+	                <input th:value="${usuario.fnacimientostring}" name="fnacimiento" type="date" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="12-12-2021">
+	                <label for="basic-url" class="form-label">Localidad</label>
+	                <input th:value="${usuario.localidad}" name="localidad" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Gijón">
+	            </div>
+	            <div class="mb-3 flex flex-column flex-center">
+	                <img src="/images/usuario.png">
+	            </div>
+	        </div>
+	        <hr>
+	        <div class="flex space-between">
+		        <button th:href="@{/#}" type="button" class="btn btn-danger">Borrar cuenta</button>
+		        <button type="submit" class="btn btn-primary">Modificar</button>
+	        </div>
+    	</form>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
 </body>
