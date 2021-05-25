@@ -37,18 +37,22 @@
 
     <!-- CONTENEDOR PRINCIPAL -->
     <div id="container">
-        <div class="flex space-between align-items-baseline">
-            <select class="form-select" aria-label="Default select example" style="width: 20%;">
-                <option selected>Filtrar...</option>
-                <option value="1">Mas recientes</option>
-                <option value="2">Populares</option>
-                <option value="3">Subiendo</option>
-            </select>
-            <div>
-                <p class="strong inline">Rutinas</p>
-                <p class="inline num-rutinas" th:text="${rutinas.size()}">30</p>
-            </div>
-        </div>
+    	<form th:action="@{/user/mis-rutinas}" method="get">
+    		<div class="flex space-between align-items-baseline">
+    			<div class="flex input-group mb-3" style="width: 30%;">
+    				<select name="filtro" class="form-select" aria-label="Default select example" style="width: 80%;">
+		                <option selected value="1">Recientes</option>
+		               	<option value="2">Antiguas</option>
+		            </select>
+		            <button class="btn btn-primary" type="submit" id="button-addon2" style="width: 20%;">Buscar</button>		            
+    			</div>
+	            <div>
+	                <p class="strong inline">Rutinas</p>
+	                <p class="inline num-rutinas" th:text="${rutinas.size()}">30</p>
+	            </div>
+	        </div>
+    	</form>
+
         <main class="container-flex">
 
             <!-- MIS RUTINAS -->

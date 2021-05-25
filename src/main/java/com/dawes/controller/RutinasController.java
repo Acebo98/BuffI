@@ -1,7 +1,9 @@
 package com.dawes.controller;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -59,11 +61,27 @@ public class RutinasController {
 	
 	//Mis rutinas
 	@GetMapping("/user/mis-rutinas")
-	public String misRutinas(Model modelo) {
-		UsuarioVO usuario = us.findByUsername(Utils.getLoggedUser()).get();		//Usuario loggeado
-		List<RutinaVO> rutinas = (List<RutinaVO>) rs.findByUsuario(usuario);	//Rutinas del usuario loggeado
+	public String misRutinas(Model modelo, @RequestParam(value = "filtro", required = false) String filtro) {
+		String user = Utils.getLoggedUser();		//String del usuario registrado
+		List<RutinaVO> lectura = List.of();			//Iniciamos la lista
 		
-		modelo.addAttribute("rutinas", rutinas);
+		//Filtro
+		if (filtro != null) {
+			switch(filtro) {
+				case "1": lectura = (List<RutinaVO>) rs.findAllByOrderByFcreacionDesc();
+					break;
+				case "2": lectura = (List<RutinaVO>) rs.findAllByOrderByFcreacionAsc();
+					break;
+			}
+			
+			//Filtramos por el nombre
+			lectura = lectura.stream().filter(r -> r.getUsuario().getNombre().equals(user)).collect(Collectors.toList());
+		}
+		else {
+			lectura = (List<RutinaVO>) (List<RutinaVO>) rs.findByUsuario(us.findByUsername(user).get());	//Leemos TODAS
+		}
+		
+		modelo.addAttribute("rutinas", lectura);
 		return "user/mis-rutinas";
 	}
 	

@@ -14,7 +14,7 @@ import com.dawes.modelo.UsuarioVO;
 public interface RutinaRepository extends CrudRepository<RutinaVO, Integer> {
 	Iterable<RutinaVO> findByFcreacionBetween(LocalDate f1, LocalDate f2);
 	Iterable<RutinaVO> findAllByOrderByFcreacionAsc();		//Ascendiente
-	Iterable<RutinaVO> findAllByOrderByFcreacionDesc();		//Descendiente	
+	Iterable<RutinaVO> findAllByOrderByFcreacionDesc();		//Descendiente		
 	Iterable<RutinaVO> findByUsuario(UsuarioVO usuario);
 	Optional<RutinaVO> findByNombre(String nombre);
 	
