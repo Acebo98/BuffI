@@ -60,4 +60,10 @@ public class RutinasController {
 		modelo.addAttribute("rutinas", rutinas);
 		return "user/mis-rutinas";
 	}
+	
+	//Nueva rutina
+	@GetMapping("/user/nueva-rutina")
+	public String nuevaRutina(Model modelo) {
+		return "user/nueva-rutina";
+	}
 }
