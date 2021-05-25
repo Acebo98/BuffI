@@ -1,5 +1,6 @@
 package com.dawes.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.dawes.modelo.EtiquetaVO;
 import com.dawes.modelo.RutinaVO;
 import com.dawes.modelo.UsuarioVO;
+import com.dawes.servicio.EtiquetaServicio;
 import com.dawes.servicio.RutinaServicio;
 import com.dawes.servicio.UsuarioServicio;
 import com.dawes.utils.Utils;
@@ -27,6 +30,9 @@ public class RutinasController {
 	
 	@Autowired
 	private UsuarioServicio us;
+	
+	@Autowired
+	private EtiquetaServicio es;
 	
 	//Mostramos las rutinas
 	@GetMapping("/buscar-rutinas")
@@ -61,9 +67,33 @@ public class RutinasController {
 		return "user/mis-rutinas";
 	}
 	
-	//Nueva rutina
+	//Formulario de nueva rutina
 	@GetMapping("/user/nueva-rutina")
 	public String nuevaRutina(Model modelo) {
+		List<EtiquetaVO> etiquetas = (List<EtiquetaVO>) es.findAll();
+		
+		modelo.addAttribute("etiquetas", etiquetas);
 		return "user/nueva-rutina";
+	}
+	
+	//Introducimos la nueva rutina
+	@PostMapping("/user/submit-rutina")
+	public String insertarRutina(@RequestParam(value = "nombre") String nombre, 
+			@RequestParam(value = "etiqueta") String etiqueta, 
+			@RequestParam(value = "descripcion") String descripcion, 
+			Model modelo) {
+		UsuarioVO usuario = us.findByUsername(Utils.getLoggedUser()).get();		//Usuario loggeado
+		EtiquetaVO etiquetavo = es.findByNombre(etiqueta).get();					//Etiqueta
+		
+		//Datos de la nueva rutina
+		RutinaVO rutina = new RutinaVO();
+		rutina.setNombre(nombre);
+		rutina.setDescripcion(descripcion);
+		rutina.setEtiqueta(etiquetavo);
+		rutina.setFcreacion(LocalDate.now());
+		rutina.setUsuario(usuario);
+		rs.save(rutina);
+		
+		return "redirect:/user/mis-rutinas";
 	}
 }

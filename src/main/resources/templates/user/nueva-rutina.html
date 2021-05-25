@@ -23,7 +23,7 @@
 
     <!-- DETALLES -->
     <main id="form-detalle-rutina">
-    	<form th:action="@{/submit-rutina}" method="post">
+    	<form th:action="@{/user/submit-rutina}" method="post">
     		<div class="mb-3 text-align">
 	            <h2>Nueva rutina...</h2>
 	            <hr>
@@ -36,11 +36,7 @@
 	            <div class="mb-3" style="width: 20%;">
 	                <label for="basic-url" class="form-label">Etiqueta</label>
 	                <select name="etiqueta" class="form-select" aria-label="Default select example">
-	                    <option selected value="1">Tren superior</option>
-	                    <option value="2">Tren inferior</option>
-	                    <option value="3">Mixto</option>
-	                    <option value="4">Core</option>
-	                    <option value="5">Otros</option>
+	                	<option th:each="etiqueta : ${etiquetas}" th:value="${etiqueta.nombre}" th:text="${etiqueta.nombre}">Tren superior</option>
 	                </select>
 	            </div>
 	        </div>
