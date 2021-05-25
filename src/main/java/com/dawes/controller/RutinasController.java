@@ -121,4 +121,13 @@ public class RutinasController {
 		rs.delete(rs.findById(idrutina).get());
 		return "redirect:/user/mis-rutinas";
 	}
+	
+	//Detalla de la rutina
+	@GetMapping("/user/detalle-rutina")
+	public String detalleRutina(int idrutina, Model modelo) {
+		RutinaVO rutina = rs.findById(idrutina).get();
+		modelo.addAttribute("rutina", rutina);
+		
+		return "user/detalle-rutina";
+	}
 }

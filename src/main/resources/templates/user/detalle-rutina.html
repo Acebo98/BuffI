@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BuffI - Detalles</title>
-    <link href="estilos.css" rel="stylesheet" type="text/css">
+    <link href="/estilos.css" rel="stylesheet" type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
 </head>
 
 <body>
@@ -21,72 +21,83 @@
         </div>
     </header>
     <main id="form-detalle-rutina">
-        <div class="text-align">
-            <h1>Pecho y brazos</h1>
-            <div>
-                <p class="item-rutina-etiqueta">Tren superior</p>
-                <p class="item-rutina-nombre">Sergio98</p>
-            </div>
-            <hr>
-        </div>
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
-            <div id="ejercicio-div-descripcion">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a lorem arcu. In ut magna blandit diam vehicula feugiat nec pretium felis. Integer id congue nunc. Nam molestie nisl interdum augue luctus dignissim. Vestibulum accumsan eu
-                    massa ut malesuada. Pellentesque felis massa, vestibulum id rutrum ac, rhoncus sed lectus. Maecenas tincidunt iaculis quam, sed porttitor urna mattis ut. Morbi auctor tellus non nisl ullamcorper, a blandit tellus convallis. Curabitur
-                    sit amet nunc felis. Integer feugiat diam leo, eget porta enim faucibus ut. Aliquam erat volutpat. Nullam maximus vitae nisi quis interdum. Quisque mauris diam, tincidunt at rhoncus ut, tincidunt vel libero. Curabitur rutrum, ex vel
-                    facilisis suscipit, orci ex gravida ligula, tincidunt venenatis ante est a nibh. Vestibulum interdum lacus et ipsum gravida, in lacinia ante scelerisque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-                    himenaeos.
-                </p>
-            </div>
-        </div>
-        <div class="mb-3">
-            <div class="flex space-between">
-                <label for="exampleFormControlTextarea1" class="form-label">Ejercicios</label>
-                <p class="strong">20</p>
-            </div>
-            <div id="div-ejercicios">
-                <!-- EJERCICIOS... -->
-                <div class="item-ejercicio">
-                    <div class="item-ejercicio-img"></div>
-                    <div class="item-ejercicio-info">
-                        <h1>Mancuernas</h1>
-                        <hr>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed
-                            to using 'Content here, content here', making it look like readable English.</p>
-                    </div>
-                </div>
-                <div class="item-ejercicio">
-                    <div class="item-ejercicio-img"></div>
-                    <div class="item-ejercicio-info">
-                        <h1>Mancuernas</h1>
-                        <hr>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed
-                            to using 'Content here, content here', making it look like readable English.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <hr>
-        <div class="mb-3">
-            <div class="flex space-between">
-                <label for="exampleFormControlTextarea1" class="form-label">Comentarios</label>
-                <p class="strong">3</p>
-            </div>
-            <div id="form-rutina-comentario">
-                <!-- COMENTARIOS -->
-                <div class="item-comentario">
-                    <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence
-                        structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
-                    <div class="flex space-between">
-                        <p class="inline strong margen0">Sergio98</p>
-                        <p class="inline strong margen0">02-02-2021</p>
-                    </div>
-                    <hr>
-                </div>
-            </div>
-        </div>
-        <button type="button" class="btn btn-link">Volver...</button>
+    	<form th:object="${rutina}">
+    	
+    		<!-- DATOS PRINCIPALES -->
+	        <div class="text-align">
+	            <h1 th:text="*{nombre}">Pecho y brazos</h1>
+	            <div>
+	                <p th:text="*{etiqueta.nombre}" class="item-rutina-etiqueta" th:style="'background-color: ' + ${rutina.etiqueta.color} + ';'">Tren superior</p>
+	                <p th:text="*{usuario.username}" class="item-rutina-nombre strong">Sergio98</p>
+	            </div>
+	            <hr>
+	        </div>
+	        <div class="mb-3">
+	            <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
+	            <div id="ejercicio-div-descripcion">
+	                <p th:text="*{descripcion}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a lorem arcu. In ut magna blandit diam vehicula feugiat nec pretium felis. Integer id congue nunc. Nam molestie nisl interdum augue luctus dignissim. Vestibulum accumsan eu
+	                    massa ut malesuada. Pellentesque felis massa, vestibulum id rutrum ac, rhoncus sed lectus. Maecenas tincidunt iaculis quam, sed porttitor urna mattis ut. Morbi auctor tellus non nisl ullamcorper, a blandit tellus convallis. Curabitur
+	                    sit amet nunc felis. Integer feugiat diam leo, eget porta enim faucibus ut. Aliquam erat volutpat. Nullam maximus vitae nisi quis interdum. Quisque mauris diam, tincidunt at rhoncus ut, tincidunt vel libero. Curabitur rutrum, ex vel
+	                    facilisis suscipit, orci ex gravida ligula, tincidunt venenatis ante est a nibh. Vestibulum interdum lacus et ipsum gravida, in lacinia ante scelerisque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+	                    himenaeos.
+	                </p>
+	            </div>
+	        </div>
+	        
+	        <!-- EJERCICIOS -->
+	        <div class="mb-3">
+	            <div class="flex space-between">
+	                <label for="exampleFormControlTextarea1" class="form-label">Ejercicios</label>
+	                <p class="strong">20</p>
+	            </div>
+	            <div id="div-ejercicios">
+	            
+	                <!-- ITEM EJERCICIOS... -->
+	                <div class="item-ejercicio">
+	                    <div class="item-ejercicio-img"></div>
+	                    <div class="item-ejercicio-info">
+	                        <h1>Mancuernas</h1>
+	                        <hr>
+	                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed
+	                            to using 'Content here, content here', making it look like readable English.</p>
+	                    </div>
+	                </div>
+	                <div class="item-ejercicio">
+	                    <div class="item-ejercicio-img"></div>
+	                    <div class="item-ejercicio-info">
+	                        <h1>Mancuernas</h1>
+	                        <hr>
+	                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed
+	                            to using 'Content here, content here', making it look like readable English.</p>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	        <hr>
+	        
+	        <!-- COMENTARIOS -->
+	        <div class="mb-3">
+	            <div class="flex space-between">
+	                <label for="exampleFormControlTextarea1" class="form-label">Comentarios</label>
+	                <p class="strong">3</p>
+	            </div>
+	            <div id="form-rutina-comentario">
+	                <div class="item-comentario">
+	                    <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence
+	                        structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+	                    <div class="flex space-between">
+	                        <p class="inline strong margen0">Sergio98</p>
+	                        <p class="inline strong margen0">02-02-2021</p>
+	                    </div>
+	                    <hr>
+	                </div>
+	            </div>
+	        </div>
+    	</form>
+
+		<!-- VOLVER -->
+		<hr>
+        <a th:href="@{/buscar-rutinas}" class="btn btn-link">Volver...</a>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
 </body>
