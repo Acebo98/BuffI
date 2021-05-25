@@ -96,4 +96,11 @@ public class RutinasController {
 		
 		return "redirect:/user/mis-rutinas";
 	}
+	
+	//Eliminamos la rutina
+	@GetMapping("/user/eliminar-rutina")
+	public String eliminarRutina(int idrutina) {
+		rs.delete(rs.findById(idrutina).get());
+		return "redirect:/user/mis-rutinas";
+	}
 }
