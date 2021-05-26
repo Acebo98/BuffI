@@ -244,7 +244,7 @@ body {
 
 #form-rutina-comentario {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
     border-radius: 10px;
     border: 1px solid lightgray;
     background-color: white;
