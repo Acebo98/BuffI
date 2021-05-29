@@ -41,7 +41,7 @@ public class MiSeguridad extends WebSecurityConfigurerAdapter {
 		//http.formLogin();
 		http.formLogin().loginPage("/login");							//Página de logeo personalizada
 		http.exceptionHandling().accessDeniedPage("/error/403");		//Página 403 personalizada
-		http.logout().logoutSuccessUrl("/buscar-rutinas");				//URL cuando nos desconectamos
+		http.logout().logoutSuccessUrl("/");							//URL cuando nos desconectamos
 		http.csrf().disable();
 	}
 	

@@ -37,8 +37,20 @@ public class RutinasController {
 	private EtiquetaServicio es;
 	
 	//Mostramos las rutinas
-	@GetMapping("/buscar-rutinas")
+	@GetMapping("/")
 	public String rutinas(Model modelo, @RequestParam(value = "nombre-filtrar", required = false) String nombre, 
+			@RequestParam(value = "filtro", required = false) String filtro) {
+		String user = Utils.getLoggedUser();						//String del usuario registrado
+		List<RutinaVO> rutinas = (List<RutinaVO>) rs.findAll();		//Leemos todas las rutinas
+		
+		modelo.addAttribute("username", user);
+		modelo.addAttribute("rutinas", rutinas);	
+		return "buscar-rutinas";
+	}
+	
+	//Filtramos las rutinas
+	@GetMapping("/buscar-rutinas")
+	public String buscarRutinas(Model modelo, @RequestParam(value = "nombre-filtrar", required = false) String nombre, 
 			@RequestParam(value = "filtro", required = false) String filtro) {
 		String user = Utils.getLoggedUser();						//String del usuario registrado
 		List<RutinaVO> rutinas = (List<RutinaVO>) rs.findAll();		//Leemos todas las rutinas

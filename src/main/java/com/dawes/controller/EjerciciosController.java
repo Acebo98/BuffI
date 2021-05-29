@@ -22,6 +22,8 @@ public class EjerciciosController {
 	@GetMapping("/user/asignar-ejercicios")
 	public String asignarEjercicios(@RequestParam(value = "idrutina") int idrutina, Model modelo) {
 		modelo.addAttribute("rutina", rs.findById(idrutina).get());
+		modelo.addAttribute("ejercicios", es.findAll());
+		
 		return "user/asignar-ejercicios";
 	}
 }
