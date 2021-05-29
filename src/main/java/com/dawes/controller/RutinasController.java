@@ -40,6 +40,7 @@ public class RutinasController {
 	@GetMapping("/buscar-rutinas")
 	public String rutinas(Model modelo, @RequestParam(value = "nombre-filtrar", required = false) String nombre, 
 			@RequestParam(value = "filtro", required = false) String filtro) {
+		String user = Utils.getLoggedUser();						//String del usuario registrado
 		List<RutinaVO> rutinas = (List<RutinaVO>) rs.findAll();		//Leemos todas las rutinas
 		
 		//Filtramos (primero por fecha y después por el nombre)
@@ -55,6 +56,7 @@ public class RutinasController {
 			rutinas = (List<RutinaVO>) rs.findByNombres(nombre.trim());
 		}
 		
+		modelo.addAttribute("username", user);
 		modelo.addAttribute("rutinas", rutinas);	
 		return "buscar-rutinas";
 	}
@@ -81,6 +83,7 @@ public class RutinasController {
 			lectura = (List<RutinaVO>) (List<RutinaVO>) rs.findByUsuario(us.findByUsername(user).get());	//Leemos TODAS
 		}
 		
+		modelo.addAttribute("username", user);
 		modelo.addAttribute("rutinas", lectura);
 		return "user/mis-rutinas";
 	}

@@ -17,13 +17,9 @@ body {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    align-content: center;
     list-style: none;
     margin: 0;
-    background-color: rgb(255, 239, 94);
-    background-image: url("/images/buffy_logo.png");
-    background-repeat: no-repeat;
-    background-size: 2.5%;
-    background-position: center left 10px;
 }
 
 .navigation a {
@@ -45,6 +41,31 @@ body {
     color: red;
 }
 
+#barra-navegacion {
+    background-color: rgb(255, 239, 94);
+    vertical-align: middle;
+    align-items: center;
+}
+
+#barra-navegacion .img-logo {
+    width: 75px;
+    height: 58px;
+    background-color: rgb(255, 239, 94);
+    background-image: url("/images/buffy_logo.png");
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center left 10px;
+}
+
+#barra-navegacion .div-info-log {
+    width: 140px;
+    padding: 10px;
+}
+
+#barra-navegacion .div-info-log p {
+    margin: 0%;
+}
+
 
 /* HEADER-TITULO */
 
@@ -57,9 +78,14 @@ body {
     border-bottom: 1px lightgray solid;
 }
 
-#header-titulo>h1 {
+#header-titulo a {
+    text-decoration: none;
+}
+
+#header-titulo h1 {
     font-size: 6em;
     font-weight: bold;
+    color: black;
 }
 
 

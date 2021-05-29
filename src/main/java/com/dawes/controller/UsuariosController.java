@@ -28,6 +28,7 @@ public class UsuariosController {
 	@GetMapping("/user/mi-perfil")
 	public String miPerfil(Model modelo) {
 		UsuarioVO usuario = us.findByUsername(Utils.getLoggedUser()).get();		//Obtenemos el usuario loggeado
+		modelo.addAttribute("username", usuario.getNombre());
 		modelo.addAttribute("usuario", usuario);
 		
 		return "user/perfil";

@@ -15,16 +15,23 @@
 
 <body>
     <header>
-        <nav>
+        <nav id="barra-navegacion" class="flex space-between">
+            <div class="img-logo">
+            </div>
             <ul class="navigation">
                 <li><a th:href="@{/buscar-rutinas}">Rutinas</a></li>
                 <li><a th:href="@{/user/mis-rutinas}">Mis rutinas</a></li>
                 <li><a th:href="@{/user/mi-perfil}">Mi perfil</a></li>
                 <li><a th:href="@{/contacto}">Contacto</a></li>
             </ul>
+            <div class="div-info-log">
+                <p><span th:text="${username}" class="strong">Sagri98</span> | <a th:href="@{/logout}">Salir</a></p>
+            </div>
         </nav>
         <div id="header-titulo">
-            <h1>BuffI</h1>
+            <a th:href="@{/buscar-rutinas}">
+                <h1>BuffI</h1>
+            </a>
             <p>Web fitness destinada a compartir rutinas para gimnasio</p>
         </div>
     </header>
@@ -37,21 +44,21 @@
 
     <!-- CONTENEDOR PRINCIPAL -->
     <div id="container">
-    	<form th:action="@{/user/mis-rutinas}" method="get">
-    		<div class="flex space-between align-items-baseline">
-    			<div class="flex input-group mb-3" style="width: 30%;">
-    				<select name="filtro" class="form-select" aria-label="Default select example" style="width: 80%;">
+        <form th:action="@{/user/mis-rutinas}" method="get">
+            <div class="flex space-between align-items-baseline">
+                <div class="flex input-group mb-3" style="width: 30%;">
+                    <select name="filtro" class="form-select" aria-label="Default select example" style="width: 80%;">
 		                <option selected value="1">Recientes</option>
 		               	<option value="2">Antiguas</option>
 		            </select>
-		            <button class="btn btn-primary" type="submit" id="button-addon2" style="width: 20%;">Buscar</button>		            
-    			</div>
-	            <div>
-	                <p class="strong inline">Rutinas</p>
-	                <p class="inline num-rutinas" th:text="${rutinas.size()}">30</p>
-	            </div>
-	        </div>
-    	</form>
+                    <button class="btn btn-primary" type="submit" id="button-addon2" style="width: 20%;">Buscar</button>
+                </div>
+                <div>
+                    <p class="strong inline">Rutinas</p>
+                    <p class="inline num-rutinas" th:text="${rutinas.size()}">30</p>
+                </div>
+            </div>
+        </form>
 
         <main class="container-flex">
 
