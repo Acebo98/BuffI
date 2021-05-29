@@ -133,4 +133,14 @@ public class RutinasController {
 		
 		return "user/detalle-rutina";
 	}
+	
+	//Modificamos la rutina
+	@GetMapping("/user/modificar-rutina")
+	public String modificarRutina(int idrutina, Model modelo) {
+		RutinaVO rutina = rs.findById(idrutina).get();
+		modelo.addAttribute("rutina", rutina);
+		modelo.addAttribute("etiquetas", es.findAll());
+		
+		return "user/modificar-rutina";
+	}
 }

@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BuffI - Modificar rutina</title>
-    <link href="estilos.css" rel="stylesheet" type="text/css">
+    <link href="/estilos.css" rel="stylesheet" type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
 </head>
 
 <body>
@@ -23,36 +23,36 @@
         </div>
     </header>
     <main id="form-detalle-rutina">
-        <div class="mb-3 text-align">
-            <h2>Modificar rutina...</h2>
-            <h4>Pecho & Brazo</h4>
-            <hr>
-        </div>
-        <div class="flex space-between">
-            <div class="mb-3" style="width: 50%;">
-                <label for="basic-url" class="form-label">Nombre de la rutina</label>
-                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Pecho & Espalda">
-            </div>
-            <div class="mb-3" style="width: 20%;">
-                <label for="basic-url" class="form-label">Etiqueta</label>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected value="1">Tren superior</option>
-                    <option value="2">Tren inferior</option>
-                    <option value="3">Mixto</option>
-                    <option value="4">Core</option>
-                    <option value="5">Otros</option>
-                </select>
-            </div>
-        </div>
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" placeholder="Sesiones de 45' 4 veces a la semana. En caso de sea poco la rutina subir las sesiones a 60' 5 veces a la semana"></textarea>
-        </div>
-        <hr>
-        <div class="flex space-between">
-            <button type="button" class="btn btn-danger">Cancelar</button>
-            <button type="button" class="btn btn-primary">Modificar</button>
-        </div>
+	    <form th:action="@{/user/submit-modificar}" method="post">
+	    	<div class="mb-3 text-align">
+	            <h2>Modificar rutina...</h2>
+	            <h4 th:text="${rutina.nombre}">Pecho & Brazo</h4>
+	            <hr>
+	        </div>
+	        <div class="flex space-between">
+	            <div class="mb-3" style="width: 50%;">
+	                <label for="basic-url" class="form-label">Nombre de la rutina</label>	             
+	                <input name="nombre" th:value="${rutina.nombre}" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Pecho & Espalda">
+	                <input name="idrutina" th:value="${rutina.idrutina}" type="number" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="1" hidden>
+	            </div>
+	            <div class="mb-3" style="width: 20%;">
+	                <label for="basic-url" class="form-label">Etiqueta</label>
+	                <select name="etiqueta" class="form-select" aria-label="Default select example">
+	                	<option th:each="etiqueta : ${etiquetas}" th:value="${etiqueta.nombre}" th:text="${etiqueta.nombre}" th:selected="${rutina.etiqueta.nombre == etiqueta.nombre}">Tren superior</option>        
+	                </select>
+	            </div>
+	        </div>
+	        <div class="mb-3">
+	            <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
+	            <textarea name="descripcion" th:text="${rutina.descripcion}" class="form-control" id="exampleFormControlTextarea1" rows="10" placeholder="Sesiones de 45' 4 veces a la semana. En caso de sea poco la rutina subir las sesiones a 60' 5 veces a la semana"></textarea>
+	        </div>
+	        <hr>
+	        <div class="flex space-between">
+	        	<a th:href="@{/user/mis-rutinas}" class="btn btn-link">Volver...</a>
+	        	<a th:href="@{/user/asignar-ejercicios(idrutina=${rutina.idrutina})}" class="btn btn-secondary">Asignar ejercicios</a>
+	            <button type="submit" class="btn btn-primary">Modificar</button>
+	        </div>
+	    </form>
     </main>
 </body>
 
