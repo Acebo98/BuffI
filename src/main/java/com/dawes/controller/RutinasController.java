@@ -143,4 +143,19 @@ public class RutinasController {
 		
 		return "user/modificar-rutina";
 	}
+	
+	@PostMapping("/user/submit-modificar")
+	public String submitModificar(@RequestParam(value = "idrutina") int idrutina, @RequestParam(value = "nombre") String nombre, 
+			@RequestParam(value = "descripcion", required = false) String descripcion, @RequestParam(value = "etiqueta") String etiqueta) {
+		RutinaVO rutina = rs.findById(idrutina).get();						//Rutina
+		EtiquetaVO etiquetavo = es.findByNombre(etiqueta).get();			//Etiqueta
+		
+		//Modificamos
+		rutina.setNombre(nombre);
+		rutina.setDescripcion(descripcion);
+		rutina.setEtiqueta(etiquetavo);
+		rs.save(rutina);
+		
+		return "redirect:/user/modificar-rutina?idrutina=" + idrutina;
+	}
 }
