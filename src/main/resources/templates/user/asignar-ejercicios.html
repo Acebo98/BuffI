@@ -40,11 +40,12 @@
                 <div id="div-ejercicios-elegir">
                 
                     <!-- EJERCICIOS A SELECCIONAR -->
-                    <div th:each="ejercicio : ${ejercicios}" th:name="${ejercicio.nombre}"  class="item-ejercicio">
+                    <div th:each="ejercicio : ${ejercicios}" th:name="${ejercicio.nombre}"  class="item-ejercicio" th:attr="isSelected=${ejercicio.nombre.equals('Otros')} ? 'true' : 'false'">
                         <img th:src="'/images/ejercicios/' + ${ejercicio.imagen}" th:name="${ejercicio.nombre}" class="item-ejercicio-img-2"></img>
                         <p th:text="${ejercicio.nombre}" th:name="${ejercicio.nombre}" class="strong">Mancuernas</p>
                     </div>
                 </div>
+                <p class="strong text-align">Selecciona uno de la lista</p>
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>

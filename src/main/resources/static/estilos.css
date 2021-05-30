@@ -340,6 +340,12 @@ body {
     width: 15%;
     height: 250px;
     transition: background-color 0.5s ease;
+    transition: border 0.2s ease;
+}
+
+#div-ejercicios-elegir>.item-ejercicio[isSelected=true] {
+    background-color: rgba(255, 255, 194, 0.733);
+    border: 3px solid black;
 }
 
 .item-ejercicio-img-2 {
