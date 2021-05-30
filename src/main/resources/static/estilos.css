@@ -233,8 +233,7 @@ body {
     border-radius: 10px;
     height: 100%;
     width: 180px;
-    background-color: red;
-    background-image: url("/images/mancuernas.jpg");
+    background-color: white;
     background-size: cover;
 }
 
@@ -387,6 +386,24 @@ body {
 
 #main-404 button {
     float: right;
+}
+
+
+/* INFO */
+
+#container-info {
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 20px;
+}
+
+#container-info h1 {
+    text-align: center;
+}
+
+#container-info>div {
+    padding: 5px;
+    width: 50%;
 }
 
 

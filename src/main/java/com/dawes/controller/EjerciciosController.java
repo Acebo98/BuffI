@@ -50,6 +50,6 @@ public class EjerciciosController {
 		asignacion.setRutina(rutina);
 		res.save(asignacion);
 		
-		return "redirect:/";
+		return "redirect:/user/modificar-rutina?idrutina=" + idrutina;
 	}
 }

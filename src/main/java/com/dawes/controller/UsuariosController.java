@@ -55,4 +55,13 @@ public class UsuariosController {
 		
 		return "redirect:/user/mi-perfil";
 	}	
+	
+	//Información
+	@GetMapping("/informacion")
+	public String informacion(Model modelo) {
+		String user = Utils.getLoggedUser();						//String del usuario registrado		
+		modelo.addAttribute("username", user);
+		
+		return "/info";
+	}
 }
