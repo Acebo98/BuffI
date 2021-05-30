@@ -23,7 +23,7 @@
         </div>
     </header>
     <main id="form-detalle-rutina">
-        <form th:action="@{/submit-ejercicio}" method="post">
+        <form th:action="@{/user/submit-ejercicio}" method="post">
             <div class="mb-3 text-align">
                 <h2>Asignar ejercicios...</h2>
                 <h4 th:text="${rutina.nombre}">Pecho & Brazo</h4>
@@ -31,22 +31,24 @@
             </div>
             <div class="mb-3">
                 <label for="basic-url" class="form-label">Nombre del ejercicio</label>
-                <input name="nombre" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Curl de bíceps">
+                <input name="nombre" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Curl de bíceps" required>
             </div>
+            <input id="nombre-ejercicio" name="nombre-ejercicio" type="text" class="form-control" aria-describedby="basic-addon3" placeholder="Bíceps" hidden>
+            <input th:value="${rutina.idrutina}" name="idrutina" type="number" class="form-control" aria-describedby="basic-addon3" placeholder="1" hidden>                 
             <div class="mb-3">
-                <label for="basic-url" class="form-label">Máquinas/Objetos necesarios</label>
+                <label for="basic-url" class="form-label">Máquina/Objeto necesario</label>
                 <div id="div-ejercicios-elegir">
                 
                     <!-- EJERCICIOS A SELECCIONAR -->
-                    <div th:each="ejercicio : ${ejercicios}"  class="item-ejercicio">
-                        <img th:src="'/images/ejercicios/' + ${ejercicio.imagen}" class="item-ejercicio-img-2"></img>
-                        <p th:text="${ejercicio.nombre}" class="strong">Mancuernas</p>
+                    <div th:each="ejercicio : ${ejercicios}" th:name="${ejercicio.nombre}"  class="item-ejercicio">
+                        <img th:src="'/images/ejercicios/' + ${ejercicio.imagen}" th:name="${ejercicio.nombre}" class="item-ejercicio-img-2"></img>
+                        <p th:text="${ejercicio.nombre}" th:name="${ejercicio.nombre}" class="strong">Mancuernas</p>
                     </div>
                 </div>
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
-                <textarea name="descripcion" class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Mancuernas de peso a elegir. 4 series de 12 repeticiones."></textarea>
+                <textarea name="descripcion" class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Mancuernas de peso a elegir. 4 series de 12 repeticiones." required></textarea>
             </div>
             <hr>
             <div class="flex space-between">
@@ -55,6 +57,7 @@
             </div>
         </form>
     </main>
+    <script src="/javascript/script.js"></script>
 </body>
 
 </html>

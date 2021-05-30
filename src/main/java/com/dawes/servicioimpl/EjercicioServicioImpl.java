@@ -69,4 +69,9 @@ public class EjercicioServicioImpl implements EjercicioServicio {
 	public void deleteAll() {
 		er.deleteAll();
 	}
+
+	@Override
+	public Optional<EjercicioVO> findByNombre(String nombre) {
+		return er.findByNombre(nombre);
+	}
 }

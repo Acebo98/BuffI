@@ -29,4 +29,6 @@ public interface EjercicioServicio {
 	void deleteAll(Iterable<? extends EjercicioVO> entities);
 
 	void deleteAll();
+	
+	Optional<EjercicioVO> findByNombre(String nombre);
 }
