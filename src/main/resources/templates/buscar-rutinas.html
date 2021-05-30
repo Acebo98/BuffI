@@ -25,12 +25,12 @@
                 <li><a th:href="@{/contacto}">Contacto</a></li>
             </ul>
             <div class="div-info-log">
-            	<div th:if="${username} != anonymousUser">
-            		<p><span th:text="${username}" class="strong">Sagri98</span> | <a th:href="@{/logout}">Salir</a></p>
-            	</div>
-            	<div th:if="${username} == anonymousUser">
-            		<a th:href="@{/sign-up}">Registrarse</a>
-            	</div>
+                <div th:if="${username} != anonymousUser">
+                    <p><span th:text="${username}" class="strong">Sagri98</span> | <a th:href="@{/logout}">Salir</a></p>
+                </div>
+                <div th:if="${username} == anonymousUser">
+                    <p><a th:href="@{/login}">Iniciar sesión</a> | <a th:href="@{/sign-up}">Registrarse</a></p>
+                </div>
             </div>
         </nav>
         <div id="header-titulo">

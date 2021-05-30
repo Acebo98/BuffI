@@ -48,22 +48,24 @@ body {
 }
 
 #barra-navegacion .img-logo {
-    width: 75px;
+    width: 20%;
     height: 58px;
     background-color: rgb(255, 239, 94);
     background-image: url("/images/buffy_logo.png");
     background-repeat: no-repeat;
-    background-size: 70%;
+    background-size: 14%;
     background-position: center left 10px;
 }
 
 #barra-navegacion .div-info-log {
-    width: 140px;
+    background-color: rgb(255, 239, 94);
+    width: 22%;
     padding: 10px;
 }
 
 #barra-navegacion .div-info-log p {
     margin: 0%;
+    text-align: right;
 }
 
 
