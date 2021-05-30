@@ -39,7 +39,6 @@ public class EjerciciosController {
 	@PostMapping("/user/submit-ejercicio")
 	public String submitEjercicio(@RequestParam(value = "idrutina") int idrutina, 
 			@RequestParam(value = "nombre-ejercicio") String nombre_ejercicio, 
-			@RequestParam(value = "nombre") String nombre, 
 			@RequestParam(value = "descripcion") String descripcion, Model modelo) {
 		RutinaVO rutina = rs.findById(idrutina).get();
 		EjercicioVO ejercicio = es.findByNombre(nombre_ejercicio).get();

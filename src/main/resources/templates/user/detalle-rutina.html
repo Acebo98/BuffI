@@ -50,26 +50,17 @@
             <div class="mb-3">
                 <div class="flex space-between">
                     <label for="exampleFormControlTextarea1" class="form-label">Ejercicios</label>
-                    <p class="strong">20</p>
+                    <p th:text="${rutina.ejercicios.size()}" class="strong">20</p>
                 </div>
                 <div id="div-ejercicios">
 
                     <!-- ITEM EJERCICIOS... -->
-                    <div class="item-ejercicio">
-                        <div class="item-ejercicio-img"></div>
+                    <div th:each="ejercicio : ${rutina.ejercicios}" class="item-ejercicio">
+                        <img th:src="'/images/ejercicios/' + ${ejercicio.ejercicio.imagen}" class="item-ejercicio-img"></img>
                         <div class="item-ejercicio-info">
-                            <h1>Mancuernas</h1>
+                            <h2 th:text="${ejercicio.ejercicio.nombre}">Mancuernas</h2>
                             <hr>
-                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed
-                                to using 'Content here, content here', making it look like readable English.</p>
-                        </div>
-                    </div>
-                    <div class="item-ejercicio">
-                        <div class="item-ejercicio-img"></div>
-                        <div class="item-ejercicio-info">
-                            <h1>Mancuernas</h1>
-                            <hr>
-                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed
+                            <p th:text="${ejercicio.descripcion}">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed
                                 to using 'Content here, content here', making it look like readable English.</p>
                         </div>
                     </div>

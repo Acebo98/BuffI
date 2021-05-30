@@ -212,7 +212,7 @@ body {
 
 #div-ejercicios {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column nowrap;
     border-radius: 10px;
     border: 1px solid lightgray;
     background-color: white;
@@ -290,6 +290,10 @@ body {
 .item-comentario>div>p {
     margin: 0%;
     padding: 0%;
+}
+
+.item-comentario hr {
+    margin: 5px 0 0 0;
 }
 
 

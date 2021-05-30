@@ -29,10 +29,6 @@
                 <h4 th:text="${rutina.nombre}">Pecho & Brazo</h4>
                 <hr>
             </div>
-            <div class="mb-3">
-                <label for="basic-url" class="form-label">Nombre del ejercicio</label>
-                <input name="nombre" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Curl de bíceps" required>
-            </div>
             <input id="nombre-ejercicio" name="nombre-ejercicio" type="text" class="form-control" aria-describedby="basic-addon3" placeholder="Bíceps" hidden>
             <input th:value="${rutina.idrutina}" name="idrutina" type="number" class="form-control" aria-describedby="basic-addon3" placeholder="1" hidden>                 
             <div class="mb-3">

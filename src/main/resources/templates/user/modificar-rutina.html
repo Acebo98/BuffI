@@ -47,6 +47,28 @@
 	            <textarea name="descripcion" th:text="${rutina.descripcion}" class="form-control" id="exampleFormControlTextarea1" rows="10" placeholder="Sesiones de 45' 4 veces a la semana. En caso de sea poco la rutina subir las sesiones a 60' 5 veces a la semana" required></textarea>
 	        </div>
 	        <hr>
+	        
+	        <!-- EJERCICIOS -->
+            <div class="mb-3">
+                <div class="flex space-between">
+                    <label for="exampleFormControlTextarea1" class="form-label">Ejercicios</label>
+                    <p th:text="${rutina.ejercicios.size()}" class="strong">20</p>
+                </div>
+                <div id="div-ejercicios">
+
+                    <!-- ITEM EJERCICIOS... -->
+                    <div th:each="ejercicio : ${rutina.ejercicios}" class="item-ejercicio">
+                        <img th:src="'/images/ejercicios/' + ${ejercicio.ejercicio.imagen}" class="item-ejercicio-img"></img>
+                        <div class="item-ejercicio-info">
+                            <h2 th:text="${ejercicio.ejercicio.nombre}">Mancuernas</h2>
+                            <hr>
+                            <p th:text="${ejercicio.descripcion}">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed
+                                to using 'Content here, content here', making it look like readable English.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
 	        <div class="flex space-between">
 	        	<a th:href="@{/user/mis-rutinas}" class="btn btn-link">Volver...</a>
 	        	<a th:href="@{/user/asignar-ejercicios(idrutina=${rutina.idrutina})}" class="btn btn-secondary">Asignar ejercicios</a>
