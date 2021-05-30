@@ -1,5 +1,7 @@
 package com.dawes.modelo;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,6 +22,8 @@ public class ComentarioVO {
 	@Column(nullable = false, length = 255)
 	private String descripcion;
 	
+	private LocalDate fcreacion;
+	
 	@ManyToOne
 	@JoinColumn(name = "idrutina")
 	private RutinaVO rutina;
@@ -32,19 +36,21 @@ public class ComentarioVO {
 		super();
 	}
 
-	public ComentarioVO(String descripcion, RutinaVO rutina, UsuarioVO usuario) {
+	public ComentarioVO(String descripcion, LocalDate fcreacion ,RutinaVO rutina, UsuarioVO usuario) {
 		super();
 		this.descripcion = descripcion;
 		this.rutina = rutina;
 		this.usuario = usuario;
+		this.fcreacion = fcreacion;
 	}
 
-	public ComentarioVO(int idcomentario, String descripcion, RutinaVO rutina, UsuarioVO usuario) {
+	public ComentarioVO(int idcomentario, String descripcion, LocalDate fcreacion , RutinaVO rutina, UsuarioVO usuario) {
 		super();
 		this.idcomentario = idcomentario;
 		this.descripcion = descripcion;
 		this.rutina = rutina;
 		this.usuario = usuario;
+		this.fcreacion = fcreacion;
 	}
 
 	public int getIdcomentario() {
@@ -61,6 +67,14 @@ public class ComentarioVO {
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	public LocalDate getFcreacion() {
+		return fcreacion;
+	}
+
+	public void setFcreacion(LocalDate fcreacion) {
+		this.fcreacion = fcreacion;
 	}
 
 	public RutinaVO getRutina() {

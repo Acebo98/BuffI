@@ -16,7 +16,7 @@
 <body>
     <header>
         <div id="header-titulo">
-            <a th:href="@{/buscar-rutinas}">
+            <a th:href="@{/}">
                 <h1>BuffI</h1>
             </a>
             <p>Web fitness destinada a compartir rutinas para gimnasio</p>
@@ -85,10 +85,10 @@
                 </div>
                 <div class="mb-3">
                     <form class="mb-3" th:action="@{/user/nuevo-comentario}" method="post">
-                    	<input name="idrutina" th:value="*{idrutina}" type="number" class="form-control" hidden>
+                        <input name="idrutina" th:value="*{idrutina}" type="number" class="form-control" hidden>
                         <textarea name="cuerpo_mensaje" class="form-control" id="exampleFormControlTextarea1" rows="4" required></textarea>
                         <div class="flex flex-end">
-                        	<button style="margin-top: 15px;" class="btn btn-primary" type="submit" id="button-addon2">Aceptar</button>
+                            <button style="margin-top: 15px;" class="btn btn-primary" type="submit" id="button-addon2">Aceptar</button>
                         </div>
                     </form>
                 </div>
@@ -99,7 +99,7 @@
                         <p th:text="${comentario.descripcion}">All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model
                             sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
                         <div class="flex flex-end">
-                            <p th:text="${comentario.usuario.username}" class="inline strong margen0">Sergio98</p>
+                            <p><span th:text="${comentario.fcreacion}">02-02-2021</span> | <span th:text="${comentario.usuario.username}" class="inline strong margen0"></span></p>
                         </div>
                         <hr>
                     </div>

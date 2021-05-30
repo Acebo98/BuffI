@@ -1,5 +1,7 @@
 package com.dawes.controller;
 
+import java.time.LocalDate;
+
 import javax.management.modelmbean.ModelMBeanOperationInfo;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +39,7 @@ public class ComentarioController {
 		ComentarioVO comentario = new ComentarioVO();
 		comentario.setDescripcion(cuerpo_mensaje.trim());
 		comentario.setUsuario(usuario);
+		comentario.setFcreacion(LocalDate.now());
 		comentario.setRutina(rs.findById(idrutina).get());
 		cs.save(comentario);
 		

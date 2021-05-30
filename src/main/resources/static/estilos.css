@@ -280,6 +280,16 @@ body {
     margin: 10px;
 }
 
+.item-comentario>div {
+    font-style: italic;
+    font-size: 0.75em;
+}
+
+.item-comentario>div>p {
+    margin: 0%;
+    padding: 0%;
+}
+
 
 /* NUM-RUTINAS */
 

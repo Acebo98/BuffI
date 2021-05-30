@@ -23,10 +23,6 @@ public class EjercicioVO {
 	@Column(unique = true, nullable = false, length = 200)
 	private String nombre;
 	
-	//Descripción opcional sobre la máquina
-	@Column(length = 200)
-	private String descripcion;
-	
 	//Ruta
 	@Column(nullable = true)
 	private String imagen;
@@ -38,18 +34,16 @@ public class EjercicioVO {
 		super();
 	}
 
-	public EjercicioVO(String nombre, String descripcion, List<RutinaEjercicioVO> rutinas, String imagen) {
+	public EjercicioVO(String nombre, List<RutinaEjercicioVO> rutinas, String imagen) {
 		super();
-		this.descripcion = descripcion;
 		this.nombre = nombre;
 		this.rutinas = rutinas;
 		this.imagen = imagen;
 	}
 
-	public EjercicioVO(int idejercicio, String nombre, String descripcion, List<RutinaEjercicioVO> rutinas, String imagen) {
+	public EjercicioVO(int idejercicio, String nombre, List<RutinaEjercicioVO> rutinas, String imagen) {
 		super();
 		this.idejercicio = idejercicio;
-		this.descripcion = descripcion;
 		this.nombre = nombre;
 		this.rutinas = rutinas;
 		this.imagen = imagen;
@@ -61,14 +55,6 @@ public class EjercicioVO {
 
 	public void setIdejercicio(int idejercicio) {
 		this.idejercicio = idejercicio;
-	}
-
-	public String getDescripcion() {
-		return descripcion;
-	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
 	}
 
 	public String getNombre() {
