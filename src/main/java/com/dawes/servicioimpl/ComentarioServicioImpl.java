@@ -92,4 +92,9 @@ public class ComentarioServicioImpl implements ComentarioServicio {
 	public long deleteByUsuario(UsuarioVO usuario) {
 		return cr.deleteByUsuario(usuario);
 	}
+
+	@Override
+	public Iterable<ComentarioVO> findAllByOrderByFcreacionDesc() {
+		return cr.findAllByOrderByFcreacionDesc();
+	}
 }

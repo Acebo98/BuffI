@@ -1,7 +1,5 @@
 package com.dawes.repositorio;
 
-import java.util.List;
-
 import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.Modifying;
@@ -16,6 +14,7 @@ import com.dawes.modelo.UsuarioVO;
 public interface ComentarioRepository extends CrudRepository<ComentarioVO, Integer> {
 	Iterable<ComentarioVO> findByRutina(RutinaVO rutina);
 	Iterable<ComentarioVO> findByUsuario(UsuarioVO usuario);
+	Iterable<ComentarioVO> findAllByOrderByFcreacionDesc();		//Descendiente	
 	
 	@Modifying
 	@Transactional

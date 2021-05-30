@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.dawes.modelo.ComentarioVO;
 import com.dawes.modelo.EtiquetaVO;
 import com.dawes.modelo.RutinaVO;
 import com.dawes.modelo.UsuarioVO;
+import com.dawes.servicio.ComentarioServicio;
 import com.dawes.servicio.EtiquetaServicio;
 import com.dawes.servicio.RutinaServicio;
 import com.dawes.servicio.UsuarioServicio;
@@ -35,6 +37,9 @@ public class RutinasController {
 	
 	@Autowired
 	private EtiquetaServicio es;
+	
+	@Autowired
+	private ComentarioServicio cs;
 	
 	//Mostramos las rutinas
 	@GetMapping("/")
@@ -141,6 +146,12 @@ public class RutinasController {
 	@GetMapping("/user/detalle-rutina")
 	public String detalleRutina(int idrutina, Model modelo) {
 		RutinaVO rutina = rs.findById(idrutina).get();
+		
+		//Sacamos los comentariosd e forma descendente y los filtramos por nombre
+		List<ComentarioVO> comentarios = (List<ComentarioVO>) cs.findAllByOrderByFcreacionDesc();
+		comentarios = comentarios.stream().filter(c -> c.getRutina().getIdrutina() == rutina.getIdrutina()).collect(Collectors.toList());
+		rutina.setComentarios(comentarios);
+		
 		modelo.addAttribute("rutina", rutina);
 		
 		return "user/detalle-rutina";

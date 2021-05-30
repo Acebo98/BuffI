@@ -34,6 +34,8 @@ public interface ComentarioServicio {
 	
 	Iterable<ComentarioVO> findByUsuario(UsuarioVO usuario);
 	
+	Iterable<ComentarioVO> findAllByOrderByFcreacionDesc();	
+	
 	long deleteByRutina(RutinaVO rutina);
 	
 	long deleteByUsuario(UsuarioVO usuario);
