@@ -56,6 +56,15 @@ public class UsuariosController {
 		return "redirect:/user/mi-perfil";
 	}	
 	
+	//Borrar el usuario
+	@GetMapping("/admin/borrar-usuario")
+	public String borrarUsuario(@RequestParam(value = "idusuario") int idusuario) {
+		UsuarioVO usuario = us.findById(idusuario).get();
+		us.delete(usuario);
+		
+		return "redirect:/admin/administracion";
+	}
+	
 	//Información
 	@GetMapping("/informacion")
 	public String informacion(Model modelo) {

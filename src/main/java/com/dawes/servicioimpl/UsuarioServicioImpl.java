@@ -14,6 +14,7 @@ import com.dawes.modelo.UsuarioVO;
 import com.dawes.repositorio.ComentarioRepository;
 import com.dawes.repositorio.RutinaRepository;
 import com.dawes.repositorio.UsuarioRepository;
+import com.dawes.servicio.RutinaServicio;
 import com.dawes.servicio.UsuarioServicio;
 import com.dawes.servicio.UsuarioServicio;
 
@@ -24,7 +25,7 @@ public class UsuarioServicioImpl implements UserDetailsService, UsuarioServicio 
 	UsuarioRepository ur;
 	
 	@Autowired
-	RutinaRepository rr;
+	RutinaServicio rs;
 	
 	@Autowired
 	ComentarioRepository cr;
@@ -73,7 +74,7 @@ public class UsuarioServicioImpl implements UserDetailsService, UsuarioServicio 
 	@Override
 	public void delete(UsuarioVO entity) {
 		cr.deleteByUsuario(entity);									//Borramos sus comentarios guardados
-		entity.getRutinas().stream().forEach(r -> rr.delete(r));	//Borramos TODAS sus rutinas
+		entity.getRutinas().stream().forEach(r -> rs.delete(r));	//Borramos TODAS sus rutinas
 		this.deleteById(entity.getIdusuario());						//Finalmente lo borramos
 	}
 

@@ -19,6 +19,6 @@ public class ErrorController {
 	//Error 403
 	@GetMapping("/403")
 	public String error403() {
-		return "403";
+		return "error/403";
 	}
 }

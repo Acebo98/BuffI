@@ -58,4 +58,11 @@ public class SecurityController {
 		us.save(nusuario);
 		return "redirect:/buscar-rutinas";
 	}
+	
+	//Página de administración
+	@GetMapping("/admin/administracion")
+	public String administracion(Model modelo) {
+		modelo.addAttribute("usuarios", us.findAll());
+		return "admin/administracion";
+	}
 }

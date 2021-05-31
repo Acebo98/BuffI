@@ -25,9 +25,12 @@
                 <li><a th:href="@{/informacion}">Información</a></li>
             </ul>
             <div class="div-info-log">
-                <div th:if="${username} != anonymousUser">
-                    <p><span th:text="${username}" class="strong">Sagri98</span> | <a th:href="@{/logout}">Salir</a></p>
-                </div>
+	            <div sec:authorize="hasRole('ROLE_USER')">
+	            	<p><span th:text="${username}" class="strong">Sagri98</span> | <a th:href="@{/logout}">Salir</a></p>
+	            </div>
+	            <div sec:authorize="hasRole('ROLE_ADMIN')">
+	            	<p><span th:text="${username}" class="strong">Sagri98</span> | <a th:href="@{/admin/administracion}">Administración</a> | <a th:href="@{/logout}">Salir</a></p>
+	            </div>
                 <div th:if="${username} == anonymousUser">
                     <p><a th:href="@{/login}">Iniciar sesión</a> | <a th:href="@{/sign-up}">Registrarse</a></p>
                 </div>

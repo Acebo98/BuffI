@@ -415,6 +415,14 @@ body {
 }
 
 
+/* TABLA ADMINISTRACIÓN */
+
+#tabla-admin {
+    text-align: center;
+    width: 100%;
+}
+
+
 /* CLASES VARIADAS */
 
 .flex {
