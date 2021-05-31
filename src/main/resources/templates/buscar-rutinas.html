@@ -66,10 +66,17 @@
                 <div class="info-item-rutina">
                     <h2 th:text="${rutina.nombre}">Brazo y pecho</h2>
                 </div>
-                <a class="item-rutina-lupa" th:href="@{/user/detalle-rutina(idrutina=${rutina.idrutina})}">
-                    <img class="mancuernas" src="images/mancuernas.png">
-                    <img class="lupa" src="images/lupa.png">
-                </a>
+                <div class="flex space-between item-rutina-lupa">
+					<img class="mancuernas" src="/images/mancuernas.png">
+					<div sec:authorize="hasRole('ROLE_ADMIN')">
+						<a th:href="@{/admin/eliminar-rutina(idrutina=${rutina.idrutina})}">
+							<img class="img-remove" src="/images/remove.png">
+						</a>
+					</div>
+                    <a th:href="@{/user/detalle-rutina(idrutina=${rutina.idrutina})}">
+                    	<img class="lupa" src="/images/lupa.png">
+                    </a>
+                </div>
                 <div class="item-rutina-other-info">
                     <p th:text="${rutina.etiqueta.nombre}" class="item-rutina-etiqueta" th:style="'background-color: ' + ${rutina.etiqueta.color} + ';'">Tren superior</p>
                     <p th:text="${rutina.usuario.username}" class="item-rutina-nombre strong">Sergio98</p>

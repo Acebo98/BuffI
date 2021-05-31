@@ -81,8 +81,8 @@ public class RutinasController {
 	//Mis rutinas
 	@GetMapping("/user/mis-rutinas")
 	public String misRutinas(Model modelo, @RequestParam(value = "filtro", required = false) String filtro) {
-		String user = Utils.getLoggedUser();		//String del usuario registrado
-		List<RutinaVO> lectura = List.of();			//Iniciamos la lista
+		String user = Utils.getLoggedUser();					//String del usuario registrado
+		List<RutinaVO> lectura = List.of();						//Iniciamos la lista
 		
 		//Filtro
 		if (filtro != null) {
@@ -140,6 +140,13 @@ public class RutinasController {
 	public String eliminarRutina(int idrutina) {
 		rs.delete(rs.findById(idrutina).get());
 		return "redirect:/user/mis-rutinas";
+	}
+	
+	//El admin elimina la rutina
+	@GetMapping("/admin/eliminar-rutina")
+	public String eliminarAdminRutina(int idrutina) {
+		rs.delete(rs.findById(idrutina).get());
+		return "redirect:/";
 	}
 	
 	//Detalla de la rutina
