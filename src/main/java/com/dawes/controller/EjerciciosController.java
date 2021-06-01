@@ -52,4 +52,13 @@ public class EjerciciosController {
 		
 		return "redirect:/user/modificar-rutina?idrutina=" + idrutina;
 	}
+	
+	//Eliminamos la asignación
+	@GetMapping("/user/eliminar-asignacion")
+	public String eliminarAsignacion(@RequestParam(value = "idrutina") int idrutina, 
+			@RequestParam(value = "idrutinaejercicio") int idrutinaejercicio) {	
+		res.deleteById(idrutinaejercicio);
+		
+		return "redirect:/user/modificar-rutina?idrutina=" + idrutina;
+	}
 }

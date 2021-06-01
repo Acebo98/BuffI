@@ -235,6 +235,11 @@ body {
     height: 200px;
     background-color: rgb(241, 241, 228);
     border: 1px solid lightgray;
+    align-items: center;
+}
+
+.item-ejercicio .img-remove {
+    margin: 10px 10px 10px 20px;
 }
 
 .item-ejercicio-img {
