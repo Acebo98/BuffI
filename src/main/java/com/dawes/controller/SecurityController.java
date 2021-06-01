@@ -1,6 +1,7 @@
 package com.dawes.controller;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -61,8 +62,19 @@ public class SecurityController {
 	
 	//Página de administración
 	@GetMapping("/admin/administracion")
-	public String administracion(Model modelo) {
-		modelo.addAttribute("usuarios", us.findAll());
+	public String administracion(@RequestParam(value = "fechaantes", required = false) String fechaantes, 
+			@RequestParam(value = "fechadespues", required = false) String fechadespues, Model modelo) {
+		List<UsuarioVO> usuarios = List.of();
+		
+		//Filtramos
+		if (fechaantes != null && fechadespues != null) {
+			usuarios = (List<UsuarioVO>) us.findByFcreacionBetween(LocalDate.parse(fechaantes), LocalDate.parse(fechadespues));
+		}
+		else {
+			usuarios = (List<UsuarioVO>) us.findAll();
+		}
+		
+		modelo.addAttribute("usuarios", usuarios);
 		return "admin/administracion";
 	}
 }
