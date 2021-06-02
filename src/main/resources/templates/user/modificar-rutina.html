@@ -23,38 +23,42 @@
         </div>
     </header>
     <main id="form-detalle-rutina">
-	    <form th:action="@{/user/submit-modificar}" method="post">
-	    	<div class="mb-3 text-align">
-	            <h2>Modificar rutina...</h2>
-	            <h4 th:text="${rutina.nombre}">Pecho & Brazo</h4>
-	            <hr>
-	        </div>
-	        <div class="flex space-between">
-	            <div class="mb-3" style="width: 50%;">
-	                <label for="basic-url" class="form-label">Nombre de la rutina</label>	             
-	                <input name="nombre" th:value="${rutina.nombre}" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Pecho & Espalda" required>
-	                <input name="idrutina" th:value="${rutina.idrutina}" type="number" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="1" hidden>
-	            </div>
-	            <div class="mb-3" style="width: 20%;">
-	                <label for="basic-url" class="form-label">Etiqueta</label>
-	                <select name="etiqueta" class="form-select" aria-label="Default select example">
+        <form th:action="@{/user/submit-modificar}" method="post">
+            <div class="mb-3 text-align">
+                <h2>Modificar rutina...</h2>
+                <h4 th:text="${rutina.nombre}">Pecho & Brazo</h4>
+                <hr>
+            </div>
+            <div class="flex space-between">
+                <div class="mb-3" style="width: 50%;">
+                    <label for="basic-url" class="form-label">Nombre de la rutina</label>
+                    <input name="nombre" th:value="${rutina.nombre}" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Pecho & Espalda" required>
+                    <input name="idrutina" th:value="${rutina.idrutina}" type="number" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="1" hidden>
+                </div>
+                <div class="mb-3" style="width: 20%;">
+                    <label for="basic-url" class="form-label">Etiqueta</label>
+                    <select name="etiqueta" class="form-select" aria-label="Default select example">
 	                	<option th:each="etiqueta : ${etiquetas}" th:value="${etiqueta.nombre}" th:text="${etiqueta.nombre}" th:selected="${rutina.etiqueta.nombre == etiqueta.nombre}">Tren superior</option>        
 	                </select>
-	            </div>
-	        </div>
-	        <div class="mb-3">
-	            <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
-	            <textarea name="descripcion" th:text="${rutina.descripcion}" class="form-control" id="exampleFormControlTextarea1" rows="10" placeholder="Sesiones de 45' 4 veces a la semana. En caso de sea poco la rutina subir las sesiones a 60' 5 veces a la semana" required></textarea>
-	        </div>
-	        <hr>
-	        
-	        <!-- EJERCICIOS -->
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
+                <textarea name="descripcion" th:text="${rutina.descripcion}" class="form-control" id="exampleFormControlTextarea1" rows="10" placeholder="Sesiones de 45' 4 veces a la semana. En caso de sea poco la rutina subir las sesiones a 60' 5 veces a la semana"
+                    required></textarea>
+            </div>
+            <hr>
+
+            <!-- EJERCICIOS -->
             <div class="mb-3">
                 <div class="flex space-between">
                     <label for="exampleFormControlTextarea1" class="form-label">Ejercicios</label>
-                    <p th:text="${rutina.ejercicios.size()}" class="strong">20</p>
+                    <p>Total: <span th:text="${rutina.ejercicios.size()}" class="strong">20</span></p>
                 </div>
                 <div id="div-ejercicios">
+                    <div class="sin-contenido" th:if="${rutina.ejercicios.size() == 0}">
+                        <p>Sin ejercicios...</p>
+                    </div>
 
                     <!-- ITEM EJERCICIOS... -->
                     <div th:each="ejercicio : ${rutina.ejercicios}" class="item-ejercicio">
@@ -70,11 +74,11 @@
                 </div>
             </div>
             <hr>
-	        <div class="flex space-between">
-	        	<a th:href="@{/user/asignar-ejercicios(idrutina=${rutina.idrutina})}" class="btn btn-secondary">Asignar ejercicios</a>
-	            <button type="submit" class="btn btn-primary">Modificar</button>
-	        </div>
-	    </form>
+            <div class="flex space-between">
+                <a th:href="@{/user/asignar-ejercicios(idrutina=${rutina.idrutina})}" class="btn btn-secondary">Asignar ejercicios</a>
+                <button type="submit" class="btn btn-primary">Modificar</button>
+            </div>
+        </form>
     </main>
 </body>
 
