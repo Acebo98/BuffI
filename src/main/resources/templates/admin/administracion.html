@@ -46,13 +46,9 @@
                     <td th:text="${usuario.nombre}"></td>
                     <td th:text="${usuario.fcreacion.toString()}"></td>
                     <td th:text="${usuario.rutinas.size()}"></td>
-                    <td><a th:href="@{/admin/borrar-usuario(idusuario=${usuario.idusuario})}">Borrar</a></td>
+                    <td><a th:href="@{/admin/ver-rutinas(idusuario=${usuario.idusuario})}">Ver rutinas</a> | <a th:href="@{/admin/borrar-usuario(idusuario=${usuario.idusuario})}">Borrar</a></td>
                 </tr>
             </table>
         </main>
-        <div>
-        	<hr>
-        	<a class="btn btn-link" th:href="@{/}">Volver...</a>
-        </div>
     </div>
 </body>
