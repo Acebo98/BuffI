@@ -82,7 +82,7 @@
                 </div>
                 <div class="item-rutina-other-info">
                     <p th:text="${rutina.etiqueta.nombre}" class="item-rutina-etiqueta" th:style="'background-color: ' + ${rutina.etiqueta.color} + ';'">Tren superior</p>
-                    <p th:text="${rutina.usuario.username}" class="item-rutina-nombre strong">Sergio98</p>
+                    <p th:text="${rutina.usuario.username}" class="item-rutina-nombre strong" th:classappend="${rutina.usuario.rol.nombre.equals('ROLE_ADMIN')} ? admin-font">Sergio98</p>
                     <p th:text="${rutina.fcreacion}" class="item-rutina-fecha">02-02-2021</p>
                 </div>
             </div>

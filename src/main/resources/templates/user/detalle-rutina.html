@@ -30,7 +30,7 @@
                 <h1 th:text="*{nombre}">Pecho y brazos</h1>
                 <div>
                     <p th:text="*{etiqueta.nombre}" class="item-rutina-etiqueta" th:style="'background-color: ' + ${rutina.etiqueta.color} + ';'">Tren superior</p>
-                    <p th:text="*{usuario.username}" class="item-rutina-nombre strong">Sergio98</p>
+                    <p th:text="*{usuario.username}" class="item-rutina-nombre strong" th:classappend="${rutina.usuario.rol.nombre.equals('ROLE_ADMIN')} ? admin-font">Sergio98</p>
                 </div>
                 <hr>
             </div>
@@ -99,7 +99,7 @@
                         <p th:text="${comentario.descripcion}">All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model
                             sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
                         <div class="flex flex-end">
-                            <p><span th:text="${comentario.fcreacion}">02-02-2021</span> | <span th:text="${comentario.usuario.username}" class="inline strong margen0"></span></p>
+                            <p><span th:text="${comentario.fcreacion}">02-02-2021</span> | <span th:text="${comentario.usuario.username}" class="inline strong margen0" th:classappend="${comentario.usuario.rol.nombre.equals('ROLE_ADMIN')} ? admin-font"></span></p>
                         </div>
                         <div sec:authorize="hasRole('ROLE_ADMIN')">
                             <a th:href="@{/admin/eliminar-comentario(idcomentario=${comentario.idcomentario}, idrutina=${rutina.idrutina})}" class="btn btn-danger">Eliminar</a>

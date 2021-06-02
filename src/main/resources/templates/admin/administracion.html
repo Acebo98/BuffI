@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BuffI - Información</title>
+    <title>BuffI - Administración</title>
     <link href="/estilos.css" rel="stylesheet" type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
@@ -43,7 +43,7 @@
                 <th>Rutinas</th>
                 <th>Acciones</th>
                 <tr th:each="usuario : ${usuarios}">
-                    <td th:text="${usuario.nombre}"></td>
+                    <td th:text="${usuario.nombre}" th:classappend="${usuario.rol.nombre.equals('ROLE_ADMIN')} ? admin-font"></td>
                     <td th:text="${usuario.fcreacion.toString()}"></td>
                     <td th:text="${usuario.rutinas.size()}"></td>
                     <td><a th:href="@{/admin/ver-rutinas(idusuario=${usuario.idusuario})}">Ver rutinas</a> | <a th:href="@{/admin/borrar-usuario(idusuario=${usuario.idusuario})}">Borrar</a></td>

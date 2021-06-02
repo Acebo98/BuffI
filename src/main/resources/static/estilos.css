@@ -496,3 +496,9 @@ body {
 .float-left {
     float: left;
 }
+
+.admin-font {
+	font-weight: bold;
+	font-style: italic;
+    color: gold;
+}
