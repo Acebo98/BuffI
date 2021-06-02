@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dawes.modelo.UsuarioVO;
+import com.dawes.servicio.ComentarioServicio;
 import com.dawes.servicio.RolServicio;
+import com.dawes.servicio.RutinaEjercicioServicio;
 import com.dawes.servicio.UsuarioServicio;
 import com.dawes.utils.Utils;
 
@@ -27,6 +29,12 @@ public class SecurityController {
 	
 	@Autowired
 	private RolServicio rs;
+	
+	@Autowired
+	private RutinaEjercicioServicio res;
+	
+	@Autowired
+	private ComentarioServicio cs;
 	
 	//Iniciar sesión
 	@GetMapping("/login")
@@ -76,5 +84,23 @@ public class SecurityController {
 		
 		modelo.addAttribute("usuarios", usuarios);
 		return "admin/administracion";
+	}
+	
+	//El admin eliminar la asignación
+	@GetMapping("/admin/eliminar-asignacion")
+	public String eliminarAsignacion(@RequestParam(value = "idrutina") int idrutina, 
+			@RequestParam(value = "idrutinaejercicio") int idrutinaejercicio) {	
+		res.deleteById(idrutinaejercicio);
+		
+		return "redirect:/user/detalle-rutina?idrutina=" + idrutina;
+	}
+	
+	//El admin elimina un comentario
+	@GetMapping("/admin/eliminar-comentario")
+	public String eliminarComentario(@RequestParam(value = "idrutina") int idrutina, 
+			@RequestParam(value = "idcomentario") int idcomentario) {	
+		cs.deleteById(idcomentario);
+		
+		return "redirect:/user/detalle-rutina?idrutina=" + idrutina;
 	}
 }
