@@ -73,4 +73,13 @@ public class UsuariosController {
 		
 		return "/info";
 	}
+	
+	//Eliminamos la cuenta
+	@GetMapping("/user/eliminar-cuenta")
+	public String eliminarCuenta() {
+		UsuarioVO usuario = us.findByUsername(Utils.getLoggedUser()).get();
+		us.delete(usuario);
+		
+		return "redirect:/logout";		//Nos desconectamos
+	}
 }
