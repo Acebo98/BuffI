@@ -33,15 +33,21 @@ public class ComentarioController {
 	@PostMapping("/user/nuevo-comentario")
 	public String nuevoComentario(@RequestParam(value = "idrutina") int idrutina, 
 			@RequestParam(value = "cuerpo_mensaje") String cuerpo_mensaje, Model modelo) {
-		UsuarioVO usuario = us.findByUsername(Utils.getLoggedUser()).get();		//Obtenemos el usuario loggeado
 		
-		//Creamos el comentario
-		ComentarioVO comentario = new ComentarioVO();
-		comentario.setDescripcion(cuerpo_mensaje.trim());
-		comentario.setUsuario(usuario);
-		comentario.setFcreacion(LocalDate.now());
-		comentario.setRutina(rs.findById(idrutina).get());
-		cs.save(comentario);
+		try {
+			UsuarioVO usuario = us.findByUsername(Utils.getLoggedUser()).get();		//Obtenemos el usuario loggeado
+			
+			//Creamos el comentario
+			ComentarioVO comentario = new ComentarioVO();
+			comentario.setDescripcion(cuerpo_mensaje.trim());
+			comentario.setUsuario(usuario);
+			comentario.setFcreacion(LocalDate.now());
+			comentario.setRutina(rs.findById(idrutina).get());
+			cs.save(comentario);
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
 		
 		return "redirect:/user/detalle-rutina?idrutina=" + idrutina;			//Recargamos la página
 	}

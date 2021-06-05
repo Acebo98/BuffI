@@ -55,17 +55,25 @@ public class SecurityController {
 	}
 	
 	//Método para registrarse
-	@PostMapping("/registrarse")
+	@PostMapping("/sign-up")
 	public String registrarse(@RequestParam(value = "email") String email, @RequestParam(value = "username") String username, 
 			@RequestParam(value = "password") String password, Model modelo) {
-		UsuarioVO nusuario = new UsuarioVO();
-		nusuario.setEmail(email);
-		nusuario.setNombre(username);
-		nusuario.setContrasena(Utils.encriptar(password));
-		nusuario.setFcreacion(LocalDate.now());					//Fecha de creación hoy 	
-		nusuario.setRol(rs.findByNombre("ROLE_USER").get()); 	//Rol de usuario normal
-		us.save(nusuario);
-		return "redirect:/buscar-rutinas";
+		try {
+			UsuarioVO nusuario = new UsuarioVO();
+			nusuario.setEmail(email.trim());
+			nusuario.setNombre(username.trim());
+			nusuario.setContrasena(Utils.encriptar(password));
+			nusuario.setFcreacion(LocalDate.now());					//Fecha de creación hoy 	
+			nusuario.setRol(rs.findByNombre("ROLE_USER").get()); 	//Rol de usuario normal
+			us.save(nusuario);
+			
+			return "redirect:/login";
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+
+			return "redirect:/sign-up";
+		}
 	}
 	
 	//Página de administración

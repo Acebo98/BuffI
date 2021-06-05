@@ -40,17 +40,25 @@ public class EjerciciosController {
 	public String submitEjercicio(@RequestParam(value = "idrutina") int idrutina, 
 			@RequestParam(value = "nombre-ejercicio") String nombre_ejercicio, 
 			@RequestParam(value = "descripcion") String descripcion, Model modelo) {
-		RutinaVO rutina = rs.findById(idrutina).get();
-		EjercicioVO ejercicio = es.findByNombre(nombre_ejercicio).get();
 		
-		//Asignación
-		RutinaEjercicioVO asignacion = new RutinaEjercicioVO();
-		asignacion.setDescripcion(descripcion);
-		asignacion.setEjercicio(ejercicio);
-		asignacion.setRutina(rutina);
-		res.save(asignacion);
-		
-		return "redirect:/user/modificar-rutina?idrutina=" + idrutina;
+		try {
+			RutinaVO rutina = rs.findById(idrutina).get();
+			EjercicioVO ejercicio = es.findByNombre(nombre_ejercicio).get();
+			
+			//Asignación
+			RutinaEjercicioVO asignacion = new RutinaEjercicioVO();
+			asignacion.setDescripcion(descripcion.trim());
+			asignacion.setEjercicio(ejercicio);
+			asignacion.setRutina(rutina);
+			res.save(asignacion);
+			
+			return "redirect:/user/modificar-rutina?idrutina=" + idrutina;
+
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+			return "redirect:/user/asignar-ejercicios?idrutina=" + idrutina;
+		}		
 	}
 	
 	//Eliminamos la asignación

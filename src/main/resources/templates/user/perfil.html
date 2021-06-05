@@ -55,13 +55,13 @@
 	            <div class="mb-3 flex flex-column flex-center" style="width: 50%;">
 	            	<input th:value="${usuario.idusuario}" name="idusuario" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="1" required hidden>        
 	                <label for="basic-url" class="form-label">E-Mail</label>
-	                <input th:value="${usuario.email}" name="email" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="ejemplo@hotmail.com" required>
+	                <input th:maxlength="40" th:value="${usuario.email}" name="email" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="ejemplo@hotmail.com" required>
 	                <label for="basic-url" class="form-label">Nombre de usuario</label>
-	                <input th:value="${usuario.username}" name="username" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="ElMasCachas98" disabled>
+	                <input th:maxlength="20" th:value="${usuario.username}" name="username" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="ElMasCachas98" disabled>
 	                <label for="basic-url" class="form-label">Fecha de nacimiento</label>
 	                <input th:value="${usuario.fnacimientostring}" name="fnacimiento" type="date" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="12-12-2021">
 	                <label for="basic-url" class="form-label">Localidad</label>
-	                <input th:value="${usuario.localidad}" name="localidad" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Gijón">
+	                <input th:maxlength="50" th:value="${usuario.localidad}" name="localidad" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Gijón">
 	            </div>
 	            <div class="mb-3 flex flex-column flex-center">
 	                <img src="/images/usuario.png">

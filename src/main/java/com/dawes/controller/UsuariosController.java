@@ -40,19 +40,25 @@ public class UsuariosController {
 			@RequestParam(value = "fnacimiento", required = false) String fnacimiento, 
 			@RequestParam(value = "localidad", required = false) String localidad,
 			@RequestParam(value = "idusuario", required = false) String idusuario, Model modelo) {
-		UsuarioVO usuario = us.findByIdusuario(Integer.parseInt(idusuario)).get();
-		usuario.setEmail(email);
-		if (Utils.isStringFullEmpty(fnacimiento) == true) {		//Miramos si el usuario ha querido introducir fecha...
-			usuario.setFnacimiento(LocalDate.parse(fnacimiento));
-			usuario.setFnacimientostring(fnacimiento);
-		}
-		else {
-			usuario.setFnacimiento(null);
-			usuario.setFnacimientostring("");
-		}
-		usuario.setLocalidad(localidad);
-		us.save(usuario);		//Modificamos
 		
+		try {
+			UsuarioVO usuario = us.findByIdusuario(Integer.parseInt(idusuario)).get();
+			usuario.setEmail(email);
+			if (Utils.isStringFullEmpty(fnacimiento) == true) {		//Miramos si el usuario ha querido introducir fecha...
+				usuario.setFnacimiento(LocalDate.parse(fnacimiento));
+				usuario.setFnacimientostring(fnacimiento);
+			}
+			else {
+				usuario.setFnacimiento(null);
+				usuario.setFnacimientostring("");
+			}
+			usuario.setLocalidad(localidad.trim());
+			us.save(usuario);		//Modificamos			
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+
 		return "redirect:/user/mi-perfil";
 	}	
 	

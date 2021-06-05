@@ -32,7 +32,7 @@
             <div class="flex space-between">
                 <div class="mb-3" style="width: 50%;">
                     <label for="basic-url" class="form-label">Nombre de la rutina</label>
-                    <input name="nombre" th:value="${rutina.nombre}" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Pecho & Espalda" required>
+                    <input th:maxlength="20" name="nombre" th:value="${rutina.nombre}" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Pecho & Espalda" required>
                     <input name="idrutina" th:value="${rutina.idrutina}" type="number" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="1" hidden>
                 </div>
                 <div class="mb-3" style="width: 20%;">
@@ -44,7 +44,7 @@
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
-                <textarea name="descripcion" th:text="${rutina.descripcion}" class="form-control" id="exampleFormControlTextarea1" rows="10" placeholder="Sesiones de 45' 4 veces a la semana. En caso de sea poco la rutina subir las sesiones a 60' 5 veces a la semana"
+                <textarea th:maxlength="200" name="descripcion" th:text="${rutina.descripcion}" class="form-control" id="exampleFormControlTextarea1" rows="10" placeholder="Sesiones de 45' 4 veces a la semana. En caso de sea poco la rutina subir las sesiones a 60' 5 veces a la semana"
                     required></textarea>
             </div>
             <hr>

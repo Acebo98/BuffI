@@ -33,7 +33,7 @@
 	        <div class="flex space-between">
 	            <div class="mb-3" style="width: 50%;">
 	                <label for="basic-url" class="form-label">Nombre de la rutina</label>
-	                <input name="nombre" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Pecho & Espalda" required>
+	                <input th:maxlength="20" name="nombre" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Pecho & Espalda" required>
 	            </div>
 	            <div class="mb-3" style="width: 20%;">
 	                <label for="basic-url" class="form-label">Etiqueta</label>
@@ -44,7 +44,7 @@
 	        </div>
 	        <div class="mb-3">
 	            <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
-	            <textarea name="descripcion" class="form-control" id="exampleFormControlTextarea1" rows="10" placeholder="Sesiones de 45' 4 veces a la semana. En caso de sea poco la rutina subir las sesiones a 60' 5 veces a la semana" required></textarea>
+	            <textarea th:maxlength="200"  name="descripcion" class="form-control" id="exampleFormControlTextarea1" rows="10" placeholder="Sesiones de 45' 4 veces a la semana. En caso de sea poco la rutina subir las sesiones a 60' 5 veces a la semana" required></textarea>
 	        </div>
 	        <div class="mb-3">
 	            <p><span class="strong">IMPORTANTE: </span>Podrás asignar ejercios a la rutina una vez la crees</p>

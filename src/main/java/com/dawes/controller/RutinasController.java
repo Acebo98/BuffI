@@ -120,19 +120,26 @@ public class RutinasController {
 			@RequestParam(value = "etiqueta") String etiqueta, 
 			@RequestParam(value = "descripcion") String descripcion, 
 			Model modelo) {
-		UsuarioVO usuario = us.findByUsername(Utils.getLoggedUser()).get();		//Usuario loggeado
-		EtiquetaVO etiquetavo = es.findByNombre(etiqueta).get();					//Etiqueta
 		
-		//Datos de la nueva rutina
-		RutinaVO rutina = new RutinaVO();
-		rutina.setNombre(nombre);
-		rutina.setDescripcion(descripcion);
-		rutina.setEtiqueta(etiquetavo);
-		rutina.setFcreacion(LocalDate.now());
-		rutina.setUsuario(usuario);
-		rs.save(rutina);
-		
-		return "redirect:/user/mis-rutinas";
+		try {
+			UsuarioVO usuario = us.findByUsername(Utils.getLoggedUser()).get();		//Usuario loggeado
+			EtiquetaVO etiquetavo = es.findByNombre(etiqueta).get();					//Etiqueta
+			
+			//Datos de la nueva rutina
+			RutinaVO rutina = new RutinaVO();
+			rutina.setNombre(nombre.trim());
+			rutina.setDescripcion(descripcion.trim());
+			rutina.setEtiqueta(etiquetavo);
+			rutina.setFcreacion(LocalDate.now());
+			rutina.setUsuario(usuario);
+			rs.save(rutina);
+					
+			return "redirect:/user/mis-rutinas";
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+			return "redirect:/user/nueva-rutina";
+		}
 	}
 	
 	//Eliminamos la rutina
@@ -177,14 +184,20 @@ public class RutinasController {
 	@PostMapping("/user/submit-modificar")
 	public String submitModificar(@RequestParam(value = "idrutina") int idrutina, @RequestParam(value = "nombre") String nombre, 
 			@RequestParam(value = "descripcion", required = false) String descripcion, @RequestParam(value = "etiqueta") String etiqueta) {
-		RutinaVO rutina = rs.findById(idrutina).get();						//Rutina
-		EtiquetaVO etiquetavo = es.findByNombre(etiqueta).get();			//Etiqueta
 		
-		//Modificamos
-		rutina.setNombre(nombre);
-		rutina.setDescripcion(descripcion);
-		rutina.setEtiqueta(etiquetavo);
-		rs.save(rutina);
+		try {
+			RutinaVO rutina = rs.findById(idrutina).get();						//Rutina
+			EtiquetaVO etiquetavo = es.findByNombre(etiqueta).get();			//Etiqueta
+			
+			//Modificamos
+			rutina.setNombre(nombre.trim());
+			rutina.setDescripcion(descripcion.trim());
+			rutina.setEtiqueta(etiquetavo);
+			rs.save(rutina);
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
 		
 		return "redirect:/user/modificar-rutina?idrutina=" + idrutina;
 	}

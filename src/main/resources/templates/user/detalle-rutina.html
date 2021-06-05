@@ -83,7 +83,7 @@
                 <div class="mb-3">
                     <form class="mb-3" th:action="@{/user/nuevo-comentario}" method="post">
                         <input name="idrutina" th:value="*{idrutina}" type="number" class="form-control" hidden>
-                        <textarea name="cuerpo_mensaje" class="form-control" id="exampleFormControlTextarea1" rows="4" required></textarea>
+                        <textarea th:maxlength="255" name="cuerpo_mensaje" class="form-control" id="exampleFormControlTextarea1" rows="4" required></textarea>
                         <div class="flex flex-end">
                             <button style="margin-top: 15px;" class="btn btn-primary" type="submit" id="button-addon2">Comentar</button>
                         </div>
