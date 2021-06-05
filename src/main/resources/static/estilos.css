@@ -374,6 +374,7 @@ body {
     height: 250px;
     transition: background-color 0.5s ease;
     transition: border 0.2s ease;
+    cursor: pointer;
 }
 
 #div-ejercicios-elegir>.item-ejercicio[isSelected=true] {
