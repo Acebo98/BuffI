@@ -75,7 +75,8 @@
             </div>
             <hr>
             <div class="flex space-between">
-                <a th:href="@{/user/asignar-ejercicios(idrutina=${rutina.idrutina})}" class="btn btn-secondary">Asignar ejercicios</a>
+                <a th:if="${rutina.ejercicios.size() < 20}" th:href="@{/user/asignar-ejercicios(idrutina=${rutina.idrutina})}" class="btn btn-secondary">Asignar ejercicios</a>
+                <p th:if="${rutina.ejercicios.size() >= 20}" class="italic strong">Solo se permiten 20 ejercicios como máximo</p>
                 <button type="submit" class="btn btn-primary">Modificar</button>
             </div>
         </form>

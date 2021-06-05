@@ -14,35 +14,33 @@
 </head>
 
 <body>
-    <header>
-        <nav id="barra-navegacion" class="flex space-between">
-            <div class="img-logo">
-            </div>
-            <ul class="navigation">
-                <li><a th:href="@{/}">Rutinas</a></li>
-                <li><a th:href="@{/user/mis-rutinas}">Mis rutinas</a></li>
-                <li><a th:href="@{/user/mi-perfil}">Mi perfil</a></li>
-                <li><a th:href="@{/informacion}" class="italic">Información</a></li>
-            </ul>
-            <div class="div-info-log">
-	            <div sec:authorize="hasRole('ROLE_USER')">
-	            	<p><span th:text="${username}" class="strong">Sagri98</span> | <a th:href="@{/logout}">Salir</a></p>
-	            </div>
-	            <div sec:authorize="hasRole('ROLE_ADMIN')">
-	            	<p><span th:text="${username}" class="strong">Sagri98</span> | <a th:href="@{/admin/administracion}">Administración</a> | <a th:href="@{/logout}">Salir</a></p>
-	            </div>
-                <div th:if="${username} == anonymousUser">
-                    <p><a th:href="@{/login}">Iniciar sesión</a> | <a th:href="@{/sign-up}">Registrarse</a></p>
-                </div>
-            </div>
-        </nav>
-        <div id="header-titulo">
-            <a th:href="@{/}">
-                <h1>BuffI</h1>
-            </a>
-            <p>Web fitness destinada a compartir rutinas para gimnasio</p>
+  	<nav id="barra-navegacion" class="flex space-between">
+     	<div class="img-logo">
         </div>
-    </header>
+       	<ul class="navigation">
+           	<li><a th:href="@{/}">Rutinas</a></li>
+           	<li><a th:href="@{/user/mis-rutinas}" class="italic">Mis rutinas</a></li>
+           	<li><a th:href="@{/user/mi-perfil}">Mi perfil</a></li>
+           	<li><a th:href="@{/informacion}">Información</a></li>
+       	</ul>
+        <div class="div-info-log">
+	       	<div sec:authorize="hasRole('ROLE_USER')">
+	          	<p><span th:text="${username}" class="strong">Sagri98</span> | <a th:href="@{/logout}">Salir</a></p>
+	       	</div>
+	      	<div sec:authorize="hasRole('ROLE_ADMIN')">
+	       		<p><span th:text="${username}" class="strong">Sagri98</span> | <a th:href="@{/admin/administracion}">Administración</a> | <a th:href="@{/logout}">Salir</a></p>
+	       	</div>
+         	<div th:if="${username} == anonymousUser">
+            	<p><a th:href="@{/login}">Iniciar sesión</a> | <a th:href="@{/sign-up}">Registrarse</a></p>
+          	</div>
+		</div>
+   	</nav>
+   	<div id="header-titulo">
+       	<a th:href="@{/}">
+      		<h1>BuffI</h1>
+        </a>
+    	<p>Web fitness destinada a compartir rutinas para gimnasio</p>
+    </div>
 
     <!-- CONTENEDOR PRINCIPAL -->
     <div id="container">

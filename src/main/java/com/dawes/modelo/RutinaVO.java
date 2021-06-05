@@ -28,7 +28,7 @@ public class RutinaVO {
 	
 	private LocalDate fcreacion;
 	
-	@Column(unique = true, nullable = false, length = 50)
+	@Column(nullable = false, length = 50)
 	private String nombre;
 	
 	@ManyToOne

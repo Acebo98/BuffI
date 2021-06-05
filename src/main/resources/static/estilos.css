@@ -1,5 +1,6 @@
 html {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    scroll-behavior: smooth;
 }
 
 
@@ -20,6 +21,8 @@ body {
     align-content: center;
     list-style: none;
     margin: 0;
+    position: sticky;
+    top: 0px;
 }
 
 .navigation a {
@@ -45,6 +48,9 @@ body {
     background-color: rgb(255, 239, 94);
     vertical-align: middle;
     align-items: center;
+    position: sticky;
+    top: 0px;
+    z-index: 10;
 }
 
 #barra-navegacion .img-logo {
@@ -106,6 +112,7 @@ body {
 
 .container-flex {
     display: flex;
+    flex-flow: row wrap;
     justify-content: space-evenly;
     padding: 10px;
 }
@@ -119,7 +126,7 @@ body {
     justify-content: space-between;
     margin: 10px;
     padding: 20px;
-    width: 33%;
+    width: 30%;
     height: 250px;
     background-color: white;
     border-radius: 20px;
@@ -255,6 +262,10 @@ body {
     width: 80%;
 }
 
+.item-ejercicio-info>p {
+    white-space: normal;
+}
+
 #ejercicio-div-descripcion {
     background-color: white;
     height: 200px;
@@ -288,10 +299,16 @@ body {
     border-radius: 10px;
     border: 1px solid lightgray;
     background-color: white;
+    box-sizing: border-box;
 }
 
 .item-comentario {
     margin: 10px;
+    max-width: 100%;
+}
+
+.item-comentario>p {
+    white-space: normal;
 }
 
 .item-comentario>div {
@@ -322,10 +339,10 @@ body {
 /* NUEVA RUTINA */
 
 .btn-nueva-rutina {
-    position: absolute;
-    right: 100px;
+    position: sticky;
     bottom: 100px;
-    text-align: center;
+    text-align: right;
+    margin-right: 4%;
 }
 
 .btn-nueva-rutina img {
@@ -498,7 +515,7 @@ body {
 }
 
 .admin-font {
-	font-weight: bold;
-	font-style: italic;
+    font-weight: bold;
+    font-style: italic;
     color: gold;
 }
