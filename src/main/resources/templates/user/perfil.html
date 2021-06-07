@@ -60,6 +60,9 @@
 	                <input th:value="${usuario.fnacimientostring}" name="fnacimiento" type="date" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="12-12-2021">
 	                <label for="basic-url" class="form-label">Localidad</label>
 	                <input th:maxlength="50" th:value="${usuario.localidad}" name="localidad" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Gijón">
+	                <div class="div-error" th:if="${error}">
+						<p>Ha ocurrido un error durante la modificación de tu perfil</p>
+					</div>            
 	            </div>
 	            <div class="mb-3 flex flex-column flex-center">
 	                <img src="/images/usuario.png">

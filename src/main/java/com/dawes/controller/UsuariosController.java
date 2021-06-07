@@ -26,10 +26,11 @@ public class UsuariosController {
 	
 	//Mostramos el perfil con los datos de usuario
 	@GetMapping("/user/mi-perfil")
-	public String miPerfil(Model modelo) {
+	public String miPerfil(Model modelo, @RequestParam(value = "error", required = false) String error) {
 		UsuarioVO usuario = us.findByUsername(Utils.getLoggedUser()).get();		//Obtenemos el usuario loggeado
 		modelo.addAttribute("username", usuario.getNombre());
 		modelo.addAttribute("usuario", usuario);
+		modelo.addAttribute("error", error);
 		
 		return "user/perfil";
 	}
@@ -58,6 +59,8 @@ public class UsuariosController {
 		}
 		catch(Exception e) {
 			System.out.println(e.getMessage());
+			
+			return "redirect:/user/mi-perfil?error";
 		}
 
 		return "redirect:/user/mi-perfil";
