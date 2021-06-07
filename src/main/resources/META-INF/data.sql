@@ -1,0 +1,34 @@
+INSERT INTO `roles` (`idrol`,`nombre`) VALUES (1,'ROLE_USER');
+INSERT INTO `roles` (`idrol`,`nombre`) VALUES (2,'ROLE_ADMIN');
+
+INSERT INTO `etiquetas` (`idetiqueta`,`nombre`,`color`) VALUES (1,'Tren superior','red');
+INSERT INTO `etiquetas` (`idetiqueta`,`nombre`,`color`) VALUES (2,'Tren inferior','blue');
+INSERT INTO `etiquetas` (`idetiqueta`,`nombre`,`color`) VALUES (3,'Mixto','yellow');
+INSERT INTO `etiquetas` (`idetiqueta`,`nombre`,`color`) VALUES (4,'Brazo','pink');
+INSERT INTO `etiquetas` (`idetiqueta`,`nombre`,`color`) VALUES (5,'Pecho','purple');
+INSERT INTO `etiquetas` (`idetiqueta`,`nombre`,`color`) VALUES (6,'Hombro','black');
+
+INSERT INTO `ejercicios` (`idejercicio`,`imagen`,`nombre`) VALUES (1,'abductor_adductor.png','Abductor / Adductor');
+INSERT INTO `ejercicios` (`idejercicio`,`imagen`,`nombre`) VALUES (2,'banco_ajustable.jpg','Banco ajustable');
+INSERT INTO `ejercicios` (`idejercicio`,`imagen`,`nombre`) VALUES (3,'biceps.jpg','Bíceps');
+INSERT INTO `ejercicios` (`idejercicio`,`imagen`,`nombre`) VALUES (4,'caja_poleas.jpg','Caja de poleas');
+INSERT INTO `ejercicios` (`idejercicio`,`imagen`,`nombre`) VALUES (5,'contractora.jpg','Contractora');
+INSERT INTO `ejercicios` (`idejercicio`,`imagen`,`nombre`) VALUES (6,'curl_biceps.jpg','Curl de bíceps');
+INSERT INTO `ejercicios` (`idejercicio`,`imagen`,`nombre`) VALUES (7,'deltoides.png','Deltoides');
+INSERT INTO `ejercicios` (`idejercicio`,`imagen`,`nombre`) VALUES (8,'elevaciones_laterales.png','Elevaciones laterales');
+INSERT INTO `ejercicios` (`idejercicio`,`imagen`,`nombre`) VALUES (9,'extension_piernas.jpg','Extensión de pierna');
+INSERT INTO `ejercicios` (`idejercicio`,`imagen`,`nombre`) VALUES (10,'femoral.png','Femoral');
+INSERT INTO `ejercicios` (`idejercicio`,`imagen`,`nombre`) VALUES (11,'gemelo.png','Gemelo');
+INSERT INTO `ejercicios` (`idejercicio`,`imagen`,`nombre`) VALUES (12,'gluteos.png','Glúteos');
+INSERT INTO `ejercicios` (`idejercicio`,`imagen`,`nombre`) VALUES (13,'jaula.jpg','Jaula');
+INSERT INTO `ejercicios` (`idejercicio`,`imagen`,`nombre`) VALUES (14,'mancuernas.jpg','Mancuernas');
+INSERT INTO `ejercicios` (`idejercicio`,`imagen`,`nombre`) VALUES (15,'multicadera.png','Multicadera');
+INSERT INTO `ejercicios` (`idejercicio`,`imagen`,`nombre`) VALUES (16,'press_banca.png','Press banca');
+INSERT INTO `ejercicios` (`idejercicio`,`imagen`,`nombre`) VALUES (17,'press_banca_declinado.png','Press banca declinado');
+INSERT INTO `ejercicios` (`idejercicio`,`imagen`,`nombre`) VALUES (18,'press_banca_inclinado.png','Press banca inclinado');
+INSERT INTO `ejercicios` (`idejercicio`,`imagen`,`nombre`) VALUES (19,'press_hombros.jpg','Press hombros');
+INSERT INTO `ejercicios` (`idejercicio`,`imagen`,`nombre`) VALUES (20,'press_pierna.png','Press pierna');
+INSERT INTO `ejercicios` (`idejercicio`,`imagen`,`nombre`) VALUES (21,'pull_down.jpg','Pull down');
+INSERT INTO `ejercicios` (`idejercicio`,`imagen`,`nombre`) VALUES (22,'remo_sentado.jpg','Remo sentado');
+INSERT INTO `ejercicios` (`idejercicio`,`imagen`,`nombre`) VALUES (23,'triceps.jpg','Triceps');
+INSERT INTO `ejercicios` (`idejercicio`,`imagen`,`nombre`) VALUES (24,'otros.png','Otros');
