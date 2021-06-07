@@ -65,7 +65,13 @@ public class EjerciciosController {
 	@GetMapping("/user/eliminar-asignacion")
 	public String eliminarAsignacion(@RequestParam(value = "idrutina") int idrutina, 
 			@RequestParam(value = "idrutinaejercicio") int idrutinaejercicio) {	
-		res.deleteById(idrutinaejercicio);
+		
+		try {
+			res.deleteById(idrutinaejercicio);
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
 		
 		return "redirect:/user/modificar-rutina?idrutina=" + idrutina;
 	}

@@ -145,28 +145,50 @@ public class RutinasController {
 	//Eliminamos la rutina
 	@GetMapping("/user/eliminar-rutina")
 	public String eliminarRutina(int idrutina) {
-		rs.delete(rs.findById(idrutina).get());
+		
+		try {
+			rs.delete(rs.findById(idrutina).get());
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
 		return "redirect:/user/mis-rutinas";
 	}
 	
 	//El admin elimina la rutina
 	@GetMapping("/admin/eliminar-rutina")
 	public String eliminarAdminRutina(int idrutina) {
-		rs.delete(rs.findById(idrutina).get());
+		
+		try {
+			rs.delete(rs.findById(idrutina).get());
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
 		return "redirect:/";
 	}
 	
 	//Detalla de la rutina
 	@GetMapping("/user/detalle-rutina")
 	public String detalleRutina(int idrutina, Model modelo) {
-		RutinaVO rutina = rs.findById(idrutina).get();
 		
-		//Sacamos los comentariosd e forma descendente y los filtramos por nombre
-		List<ComentarioVO> comentarios = (List<ComentarioVO>) cs.findAllByOrderByFcreacionDesc();
-		comentarios = comentarios.stream().filter(c -> c.getRutina().getIdrutina() == rutina.getIdrutina()).collect(Collectors.toList());
-		rutina.setComentarios(comentarios);
-		
-		modelo.addAttribute("rutina", rutina);
+		try {
+			RutinaVO rutina = rs.findById(idrutina).get();
+			
+			//Sacamos los comentariosd e forma descendente y los filtramos por nombre
+			List<ComentarioVO> comentarios = (List<ComentarioVO>) cs.findAllByOrderByFcreacionDesc();
+			comentarios = comentarios.stream().filter(c -> c.getRutina().getIdrutina() == rutina.getIdrutina()).collect(Collectors.toList());
+			rutina.setComentarios(comentarios);
+			
+			modelo.addAttribute("rutina", rutina);	
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+
+			return "redirect:/";
+		}
 		
 		return "user/detalle-rutina";
 	}
@@ -174,9 +196,17 @@ public class RutinasController {
 	//Modificamos la rutina
 	@GetMapping("/user/modificar-rutina")
 	public String modificarRutina(int idrutina, Model modelo) {
-		RutinaVO rutina = rs.findById(idrutina).get();
-		modelo.addAttribute("rutina", rutina);
-		modelo.addAttribute("etiquetas", es.findAll());
+		
+		try {
+			RutinaVO rutina = rs.findById(idrutina).get();
+			modelo.addAttribute("rutina", rutina);
+			modelo.addAttribute("etiquetas", es.findAll());
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+			
+			return "user/mis-rutinas";
+		}
 		
 		return "user/modificar-rutina";
 	}

@@ -44,6 +44,7 @@ public class UsuariosController {
 		try {
 			UsuarioVO usuario = us.findByIdusuario(Integer.parseInt(idusuario)).get();
 			usuario.setEmail(email);
+			
 			if (Utils.isStringFullEmpty(fnacimiento) == true) {		//Miramos si el usuario ha querido introducir fecha...
 				usuario.setFnacimiento(LocalDate.parse(fnacimiento));
 				usuario.setFnacimientostring(fnacimiento);
@@ -65,8 +66,14 @@ public class UsuariosController {
 	//Borrar el usuario
 	@GetMapping("/admin/borrar-usuario")
 	public String borrarUsuario(@RequestParam(value = "idusuario") int idusuario) {
-		UsuarioVO usuario = us.findById(idusuario).get();
-		us.delete(usuario);
+		
+		try {
+			UsuarioVO usuario = us.findById(idusuario).get();
+			us.delete(usuario);
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
 		
 		return "redirect:/admin/administracion";
 	}
@@ -83,9 +90,17 @@ public class UsuariosController {
 	//Eliminamos la cuenta
 	@GetMapping("/user/eliminar-cuenta")
 	public String eliminarCuenta() {
-		UsuarioVO usuario = us.findByUsername(Utils.getLoggedUser()).get();
-		us.delete(usuario);
 		
-		return "redirect:/logout";		//Nos desconectamos
+		try {
+			UsuarioVO usuario = us.findByUsername(Utils.getLoggedUser()).get();
+			us.delete(usuario);
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+			
+			return "redirect:/user/mi-perfil";
+		}
+		
+		return "redirect:/logout?logout";		//Nos desconectamos
 	}
 }

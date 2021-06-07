@@ -99,7 +99,13 @@ public class SecurityController {
 	@GetMapping("/admin/eliminar-asignacion")
 	public String eliminarAsignacion(@RequestParam(value = "idrutina") int idrutina, 
 			@RequestParam(value = "idrutinaejercicio") int idrutinaejercicio) {	
-		res.deleteById(idrutinaejercicio);
+		
+		try {
+			res.deleteById(idrutinaejercicio);
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
 		
 		return "redirect:/user/detalle-rutina?idrutina=" + idrutina;
 	}
@@ -108,8 +114,14 @@ public class SecurityController {
 	@GetMapping("/admin/eliminar-comentario")
 	public String eliminarComentario(@RequestParam(value = "idrutina") int idrutina, 
 			@RequestParam(value = "idcomentario") int idcomentario) {	
-		cs.deleteById(idcomentario);
 		
+		try {
+			cs.deleteById(idcomentario);
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+	
 		return "redirect:/user/detalle-rutina?idrutina=" + idrutina;
 	}
 	
