@@ -39,9 +39,11 @@
                 <input th:maxlength="15" name="password" type="password" class="form-control" id="floatingPassword" placeholder="Contraseña..." required>
                 <label for="floatingPassword">Contraseña</label>
             </div>
-
+			<div class="div-error" th:if="${error}">
+				<p>Ha ocurrido un error en el registro</p>
+			</div>
             <div class="form-floating" style="margin: 10px 0 10px 0;">
-                <a th:href="@{/login}">Ya tengo una cuenta.</a>
+                <a th:href="@{/login}">Ya tengo una cuenta</a>
             </div>
             <button class="w-100 btn btn-lg btn-primary" type="submit">Registrarse</button>
             <div class="flex space-between">

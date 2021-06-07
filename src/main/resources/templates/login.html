@@ -35,8 +35,14 @@
                 <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Contraseña..." required>
                 <label for="floatingPassword">Contraseña</label>
             </div>
+            <div class="div-error" th:if="${param.error}">	<!-- ERROR AL INICIAR SESIÓN -->
+            	<p>Usuario o contraseña incorrectos</p>
+            </div>
+            <div class="div-info" th:if="${param.logout}">	<!-- NOS DESCONECTAMOS -->
+            	<p>Te has desconectado correctamente</p>
+            </div>
             <div class="form-floating" style="margin: 10px 0 10px 0;">
-                <a th:href="@{/sign-up}">¿No tienes una cuenta? Creala ahora mismo.</a>
+                <a th:href="@{/sign-up}">¿No tienes una cuenta? Creala ahora mismo</a>
             </div>
             <button class="w-100 btn btn-lg btn-primary" type="submit">Iniciar sesión</button>
             <div class="flex space-between">

@@ -39,9 +39,9 @@ public class MiSeguridad extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers("/admin/**").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers("/user/**").hasAnyRole("USER", "ADMIN");
 		//http.formLogin();
-		http.formLogin().loginPage("/login");							//Página de logeo personalizada
-		http.exceptionHandling().accessDeniedPage("/403");				//Página 403 personalizada
-		http.logout().logoutSuccessUrl("/");							//URL cuando nos desconectamos
+		http.formLogin().loginPage("/login");										//Página de logeo personalizada
+		http.exceptionHandling().accessDeniedPage("/403");							//Página 403 personalizada
+		http.logout().logoutSuccessUrl("/login?logout");							//URL cuando nos desconectamos
 		http.csrf().disable();
 	}
 	

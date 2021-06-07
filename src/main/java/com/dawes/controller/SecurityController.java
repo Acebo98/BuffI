@@ -44,7 +44,8 @@ public class SecurityController {
 	
 	//Registro
 	@GetMapping("/sign-up")
-	public String signup() {
+	public String signup(@RequestParam(value = "error", required = false) String error, Model modelo) {
+		modelo.addAttribute("error", error);
 		return "sign-up";
 	}
 
@@ -72,7 +73,7 @@ public class SecurityController {
 		catch(Exception e) {
 			System.out.println(e.getMessage());
 
-			return "redirect:/sign-up";
+			return "redirect:/sign-up?error";
 		}
 	}
 	

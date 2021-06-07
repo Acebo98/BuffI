@@ -455,6 +455,36 @@ body {
 }
 
 
+/* ERROR */
+
+.div-error {
+    background-color: rgb(240, 148, 148);
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #ee6868;
+}
+
+.div-error>p {
+    margin: 0%;
+    color: red;
+}
+
+
+/* INFO */
+
+.div-info {
+    background-color: rgb(148, 240, 148);
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #68ee6f;
+}
+
+.div-info>p {
+    margin: 0%;
+    color: green;
+}
+
+
 /* CLASES VARIADAS */
 
 .flex {
