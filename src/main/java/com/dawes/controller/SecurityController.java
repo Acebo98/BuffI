@@ -128,7 +128,7 @@ public class SecurityController {
 	//El admin ve las rutinas de un usuario
 	@GetMapping("/admin/ver-rutinas")
 	public String verRutinas(@RequestParam(value = "idusuario") int idusuario, Model modelo) {
-		UsuarioVO usuario = us.findById(idusuario).get();		//Sacamos al usuario
+		UsuarioVO usuario = us.findByIdusuario(idusuario).get();		//Sacamos al usuario
 		modelo.addAttribute("usuario", usuario);
 		
 		return "admin/ver-rutinas";

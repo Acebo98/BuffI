@@ -1,12 +1,18 @@
 INSERT INTO `roles` (`idrol`,`nombre`) VALUES (1,'ROLE_USER');
 INSERT INTO `roles` (`idrol`,`nombre`) VALUES (2,'ROLE_ADMIN');
 
-INSERT INTO `etiquetas` (`idetiqueta`,`nombre`,`color`) VALUES (1,'Tren superior','red');
-INSERT INTO `etiquetas` (`idetiqueta`,`nombre`,`color`) VALUES (2,'Tren inferior','blue');
-INSERT INTO `etiquetas` (`idetiqueta`,`nombre`,`color`) VALUES (3,'Mixto','yellow');
-INSERT INTO `etiquetas` (`idetiqueta`,`nombre`,`color`) VALUES (4,'Brazo','pink');
-INSERT INTO `etiquetas` (`idetiqueta`,`nombre`,`color`) VALUES (5,'Pecho','purple');
-INSERT INTO `etiquetas` (`idetiqueta`,`nombre`,`color`) VALUES (6,'Hombro','black');
+INSERT INTO `etiquetas` (`idetiqueta`,`color`,`nombre`) VALUES (1,'red','Fullbody');
+INSERT INTO `etiquetas` (`idetiqueta`,`color`,`nombre`) VALUES (2,'blue','Tren superior');
+INSERT INTO `etiquetas` (`idetiqueta`,`color`,`nombre`) VALUES (3,'yellow','Tren inferior');
+INSERT INTO `etiquetas` (`idetiqueta`,`color`,`nombre`) VALUES (4,'pink','Brazo');
+INSERT INTO `etiquetas` (`idetiqueta`,`color`,`nombre`) VALUES (5,'purple','Pecho');
+INSERT INTO `etiquetas` (`idetiqueta`,`color`,`nombre`) VALUES (6,'cyan','Triceps');
+INSERT INTO `etiquetas` (`idetiqueta`,`color`,`nombre`) VALUES (7,'black','Hombro');
+INSERT INTO `etiquetas` (`idetiqueta`,`color`,`nombre`) VALUES (8,'green','Abdominales');
+INSERT INTO `etiquetas` (`idetiqueta`,`color`,`nombre`) VALUES (9,'brown','Glúteo');
+INSERT INTO `etiquetas` (`idetiqueta`,`color`,`nombre`) VALUES (10,'gray','Femoral');
+INSERT INTO `etiquetas` (`idetiqueta`,`color`,`nombre`) VALUES (11,'orange','Gemelo');
+INSERT INTO `etiquetas` (`idetiqueta`,`color`,`nombre`) VALUES (12,'maroon','Bíceps');
 
 INSERT INTO `ejercicios` (`idejercicio`,`imagen`,`nombre`) VALUES (1,'abductor_adductor.png','Abductor / Adductor');
 INSERT INTO `ejercicios` (`idejercicio`,`imagen`,`nombre`) VALUES (2,'banco_ajustable.jpg','Banco ajustable');
@@ -32,3 +38,35 @@ INSERT INTO `ejercicios` (`idejercicio`,`imagen`,`nombre`) VALUES (21,'pull_down
 INSERT INTO `ejercicios` (`idejercicio`,`imagen`,`nombre`) VALUES (22,'remo_sentado.jpg','Remo sentado');
 INSERT INTO `ejercicios` (`idejercicio`,`imagen`,`nombre`) VALUES (23,'triceps.jpg','Triceps');
 INSERT INTO `ejercicios` (`idejercicio`,`imagen`,`nombre`) VALUES (24,'otros.png','Otros');
+
+INSERT INTO `usuarios` (`idusuario`,`email`,`fcreacion`,`fnacimiento`,`fnacimientostring`,`localidad`,`password`,`username`,`idrol`) VALUES (1,'admin@gmail.com','2021-06-09',NULL,'','','$2a$10$lAvcZT22qpweAPL9SlLEye4zs7CkHOno1R6.q55tjz3BNS5A8TXfu','admin',2);
+INSERT INTO `usuarios` (`idusuario`,`email`,`fcreacion`,`fnacimiento`,`fnacimientostring`,`localidad`,`password`,`username`,`idrol`) VALUES (2,'sergio98.am@hotmail.com','2021-06-09','1998-12-29','1998-12-29','Gijón','$2a$10$dk6P/vr6dz5YyCk727OHJeHPoH5QPBQ/JcV7qu1SQ/pe5nEJJc6jm','Acebo98',1);
+INSERT INTO `usuarios` (`idusuario`,`email`,`fcreacion`,`fnacimiento`,`fnacimientostring`,`localidad`,`password`,`username`,`idrol`) VALUES (3,'rosina65@gmail.com','2021-06-09',NULL,NULL,NULL,'$2a$10$myNSJPkIjBOjemZh1IfmiO/riDfoqexcj8TfExzvt36yLmhMZ5CHy','rosina',1);
+
+INSERT INTO `rutinas` (`idrutina`,`descripcion`,`fcreacion`,`nombre`,`idetiqueta`,`idusuario`) VALUES (1,'Sesiones de 45\'. 4 veces a la semana.','2021-06-09','Pectoral Acebo',5,2);
+INSERT INTO `rutinas` (`idrutina`,`descripcion`,`fcreacion`,`nombre`,`idetiqueta`,`idusuario`) VALUES (2,'Sesiones de 30\'. 2 veces a la semana.','2021-06-09','Triceps Acebo',6,2);
+INSERT INTO `rutinas` (`idrutina`,`descripcion`,`fcreacion`,`nombre`,`idetiqueta`,`idusuario`) VALUES (3,'Sesiones de 45\'. 4 veces a la semana.','2021-06-09','Brazo Acebo',4,2);
+INSERT INTO `rutinas` (`idrutina`,`descripcion`,`fcreacion`,`nombre`,`idetiqueta`,`idusuario`) VALUES (4,'Sesiones de 60\'. 2 veces a la semana.','2021-06-09','Pierna Rosina',3,3);
+INSERT INTO `rutinas` (`idrutina`,`descripcion`,`fcreacion`,`nombre`,`idetiqueta`,`idusuario`) VALUES (5,'Sesiones de 45\'. 1 vez a la semana.','2021-06-09','Hombros pro',7,1);
+
+INSERT INTO `rutinasejercicios` (`idrutinaejercicio`,`descripcion`,`idejercicio`,`idrutina`) VALUES (1,'4 series de 12 repeticiones.',16,1);
+INSERT INTO `rutinasejercicios` (`idrutinaejercicio`,`descripcion`,`idejercicio`,`idrutina`) VALUES (2,'4 series de 12 repeticiones.',5,1);
+INSERT INTO `rutinasejercicios` (`idrutinaejercicio`,`descripcion`,`idejercicio`,`idrutina`) VALUES (3,'4 series de 12 repeticiones.',17,1);
+INSERT INTO `rutinasejercicios` (`idrutinaejercicio`,`descripcion`,`idejercicio`,`idrutina`) VALUES (4,'4 series de 8 repeticiones. Aperturas.',14,1);
+INSERT INTO `rutinasejercicios` (`idrutinaejercicio`,`descripcion`,`idejercicio`,`idrutina`) VALUES (5,'4 series de 8 repeticiones. Pull over.',14,1);
+INSERT INTO `rutinasejercicios` (`idrutinaejercicio`,`descripcion`,`idejercicio`,`idrutina`) VALUES (6,'Press francés. 4 series de 8 repeticiones.',14,2);
+INSERT INTO `rutinasejercicios` (`idrutinaejercicio`,`descripcion`,`idejercicio`,`idrutina`) VALUES (7,'Press francés mano. 4 series de 8 repeticiones.',14,2);
+INSERT INTO `rutinasejercicios` (`idrutinaejercicio`,`descripcion`,`idejercicio`,`idrutina`) VALUES (8,'Press francés a 1 mano. 4 series de 12 repeticiones.',14,2);
+INSERT INTO `rutinasejercicios` (`idrutinaejercicio`,`descripcion`,`idejercicio`,`idrutina`) VALUES (9,'Patada tríceps con mancuernas. 4 series de 12 repeticiones.',2,2);
+INSERT INTO `rutinasejercicios` (`idrutinaejercicio`,`descripcion`,`idejercicio`,`idrutina`) VALUES (10,'Curl Alterno. 4 series de 2 repeticiones.',14,3);
+INSERT INTO `rutinasejercicios` (`idrutinaejercicio`,`descripcion`,`idejercicio`,`idrutina`) VALUES (11,'Curl martillo. 4 series de 8 repeticiones.',14,3);
+INSERT INTO `rutinasejercicios` (`idrutinaejercicio`,`descripcion`,`idejercicio`,`idrutina`) VALUES (12,'Press francés. 4 series de 8 repeticiones.',14,3);
+INSERT INTO `rutinasejercicios` (`idrutinaejercicio`,`descripcion`,`idejercicio`,`idrutina`) VALUES (13,'Press francés de pie. 4 series de 8 repeticiones.',14,3);
+INSERT INTO `rutinasejercicios` (`idrutinaejercicio`,`descripcion`,`idejercicio`,`idrutina`) VALUES (14,'Glúteos. 4 series de 12 repeticiones.',9,4);
+INSERT INTO `rutinasejercicios` (`idrutinaejercicio`,`descripcion`,`idejercicio`,`idrutina`) VALUES (15,'Prensa de piernas. 4 series de 12 repeticiones.',20,4);
+INSERT INTO `rutinasejercicios` (`idrutinaejercicio`,`descripcion`,`idejercicio`,`idrutina`) VALUES (16,'Femoral. 4 series de 12 repeticiones.',10,4);
+INSERT INTO `rutinasejercicios` (`idrutinaejercicio`,`descripcion`,`idejercicio`,`idrutina`) VALUES (17,'Gemelos. 4 series de 12 repeticiones.',11,4);
+INSERT INTO `rutinasejercicios` (`idrutinaejercicio`,`descripcion`,`idejercicio`,`idrutina`) VALUES (18,'Press militar. 4 series de 12 repeticiones.',19,5);
+INSERT INTO `rutinasejercicios` (`idrutinaejercicio`,`descripcion`,`idejercicio`,`idrutina`) VALUES (19,'Press de pecho. 4 series de 12 repeticiones.',14,5);
+INSERT INTO `rutinasejercicios` (`idrutinaejercicio`,`descripcion`,`idejercicio`,`idrutina`) VALUES (20,'Elevación lateral. 4 series de 8 repeticiones.',14,5);
+INSERT INTO `rutinasejercicios` (`idrutinaejercicio`,`descripcion`,`idejercicio`,`idrutina`) VALUES (21,'Press mancuernas. 4 series de 8 repeticiones.',14,5);

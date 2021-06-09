@@ -71,7 +71,7 @@ public class UsuariosController {
 	public String borrarUsuario(@RequestParam(value = "idusuario") int idusuario) {
 		
 		try {
-			UsuarioVO usuario = us.findById(idusuario).get();
+			UsuarioVO usuario = us.findByIdusuario(idusuario).get();
 			us.delete(usuario);
 		}
 		catch(Exception e) {
