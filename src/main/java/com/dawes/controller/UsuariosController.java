@@ -87,7 +87,7 @@ public class UsuariosController {
 		String user = Utils.getLoggedUser();						//String del usuario registrado		
 		modelo.addAttribute("username", user);
 		
-		return "/info";
+		return "info";
 	}
 	
 	//Eliminamos la cuenta
