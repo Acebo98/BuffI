@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.dawes</groupId>
 	<artifactId>BuffI</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>SergioAcebalMenendez_2021</version>
 	<name>BuffI</name>
 	<description>Proyecto para DAW</description>
 	<properties>
